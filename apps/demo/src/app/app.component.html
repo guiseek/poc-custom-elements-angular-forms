@@ -1,0 +1,20 @@
+<header class="flex">
+  <img
+    alt="Nx logo"
+    width="75"
+    src="https://nx.dev/assets/images/nx-logo-white.svg"
+  />
+  <h1>Welcome to {{ title }}!</h1>
+</header>
+
+<form [formGroup]="form">
+  <div>
+    <label for="name">Name</label>
+    <nxc-input formControlName="name"></nxc-input>
+    <!-- <input type="text" formControlName="name" nxc-input="name" name="name"> -->
+  </div>
+</form>
+
+<pre>{{ form.value | json }}</pre>
+
+<router-outlet></router-outlet>

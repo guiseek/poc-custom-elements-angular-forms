@@ -17,9 +17,37 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "ui-forms": {
+      "tags": [
+        "type:ui"
+      ]
+    },
+    "demo": {
+      "tags": [
+        "type:app"
+      ]
+    },
+    "demo-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "demo"
+      ]
+    },
+    "ui-custom-forms": {
+      "tags": [
+        "type:ui",
+        "framework:stencil"
+      ]
+    }
+  }
 }

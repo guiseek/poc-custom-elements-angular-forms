@@ -10,12 +10,30 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nxc/ui/forms": [
+        "libs/ui/forms/src/index.ts"
+      ],
+      "@nxc/ui/custom/forms": [
+        "libs/ui/custom/forms/src/index.ts"
+      ],
+      "@nxc/ui/custom/forms/loader": [
+        "dist/libs/ui/custom/forms/loader"
+      ]
+    }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
