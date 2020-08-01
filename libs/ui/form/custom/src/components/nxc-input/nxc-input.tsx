@@ -9,7 +9,6 @@ import {
   State,
   Element,
 } from '@stencil/core';
-import { Size } from '@nxc/ui/core';
 
 let id = 0;
 
@@ -31,7 +30,7 @@ export class NxcInput implements FormInput {
 
   @Prop() type: InputType = 'text';
 
-  @Prop() size: Size = 'medium';
+  @Prop() size = 'medium';
 
   @Prop() name = '';
 
@@ -71,11 +70,11 @@ export class NxcInput implements FormInput {
 
   @Prop() invalid = false;
 
-  @Event() valueChange: EventEmitter;
+  @Event() valueChange: EventEmitter<any>;
 
-  @Event() focusChange: EventEmitter;
+  @Event() focusChange: EventEmitter<any>;
 
-  @Event() blurChange: EventEmitter;
+  @Event() blurChange: EventEmitter<any>;
 
   connectedCallback() {
     this.handleChange = this.handleChange.bind(this);
@@ -112,7 +111,7 @@ export class NxcInput implements FormInput {
 
   handleInput() {
     this.value = this.input.value;
-    this.focusChange.emit();
+    this.focusChange.emit({ detail: this.value });
   }
 
   handleBlur() {

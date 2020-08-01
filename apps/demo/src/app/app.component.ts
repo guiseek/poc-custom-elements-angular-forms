@@ -1,6 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Components } from '@nxc/ui/form/custom';
+import { InputComponent } from '@nxc/ui/form/angular';
 
 @Component({
   selector: 'demo-root',
@@ -9,18 +16,30 @@ import { Components } from '@nxc/ui/form/custom';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'demo';
-  @ViewChild('nxcInput') input: ElementRef<Components.NxcInput>;
+  // @ViewChild('nxcInput') input: ElementRef<Components.NxcInput>;
+  // @ViewChild('nxcInput') input: InputComponent;
 
   form = new FormGroup({
-    name: new FormControl('', [Validators.required])
+    email: new FormControl('', [Validators.required]),
   });
 
   ngOnInit() {
-    // console.log(this.form.value);
   }
 
   ngAfterViewInit() {
-    console.log('input: ', this.input);
+    // const input = document.querySelector<HTMLNxcInputElement>('nxc-input');
+    // console.log((input as any));
+    // document.querySelectorAll('nxc-input').forEach((input) => {
+    //   ['valueChange', 'focusChange', 'blurChange'].forEach((inputEvent) => {
+    //     input.addEventListener(inputEvent, ($event) => {
+    //       console.log($event);
+    //     });
+    //   });
+    // });
+
     // this.input.nativeElement.first;
+  }
+  change($event) {
+    console.log('event: ', $event);
   }
 }

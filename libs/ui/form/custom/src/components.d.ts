@@ -6,7 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { InputType } from "@nxc/ui/form/core";
-import { Size } from "@nxc/ui/core";
 export namespace Components {
     interface NxcInput {
         /**
@@ -72,7 +71,7 @@ export namespace Components {
           * Sets focus on the input.
          */
         "setFocus": () => Promise<void>;
-        "size": Size;
+        "size": string;
         /**
           * The input's step attribute.
          */
@@ -150,7 +149,7 @@ declare namespace LocalJSX {
           * The input's required attribute.
          */
         "required"?: boolean;
-        "size"?: Size;
+        "size"?: string;
         /**
           * The input's step attribute.
          */

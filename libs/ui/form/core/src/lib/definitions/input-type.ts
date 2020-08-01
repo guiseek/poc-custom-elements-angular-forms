@@ -5,4 +5,5 @@ export type InputType =
 | 'search'
 | 'tel'
 | 'text'
-| 'url';
+| 'url'
+| string;

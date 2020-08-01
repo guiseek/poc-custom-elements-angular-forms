@@ -1,119 +1,66 @@
-import { takeUntil } from 'rxjs/operators';
-import {
-  Component,
-  OnInit,
-  Input,
-  HostBinding,
-  Inject,
-  Optional,
-  SkipSelf,
-  OnDestroy,
-  EventEmitter,
-  Output,
-  Host,
-} from '@angular/core';
-import {
-  AbstractControl,
-  NgControl,
-  NG_VALUE_ACCESSOR,
-  ControlValueAccessor,
-  ControlContainer,
-} from '@angular/forms';
-import { InputBase } from './input';
-import { Subject } from 'rxjs';
+import { Component, OnInit, EventEmitter, Optional, SkipSelf, Host, forwardRef } from '@angular/core';
+import { FormInput } from '@nxc/ui/form/core';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, NgControl, ControlContainer, FormControl } from '@angular/forms';
 
-let id = 0;
-
-type InputType =
-  | 'email'
-  | 'number'
-  | 'password'
-  | 'search'
-  | 'tel'
-  | 'text'
-  | 'url';
-type InputSize = 'small' | 'medium' | 'large';
 @Component({
   selector: 'nxc-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: InputComponent,
-      multi: true,
-    },
-  ],
+  template: `<input [formControl]="ngControl"  />`,
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => InputComponent),
+    multi: true
+  }],
+  styleUrls: ['./input.component.scss']
 })
-export class InputComponent extends InputBase implements OnInit, OnDestroy {
-  destroy$ = new Subject<void>();
-
-  @Input()
-  public set type(value: string) {
-    this._type = value;
+export class InputComponent implements ControlValueAccessor, FormInput, OnInit {
+  ngControl = new FormControl();
+  constructor() {
+    this.valueChange
   }
-  public get type(): string {
-    return this._type;
-  }
-  private _type = 'text';
-
-  @Output() valueChange: EventEmitter<any> = new EventEmitter<any>();
-
-  constructor(
-    @Optional()
-    @Host()
-    @SkipSelf()
-    private controlContainer: ControlContainer
-  ) {
-    super();
-  }
-
-  ngOnInit() {
-    if (this.formControl) {
-      return this.detectChanges();
-    }
-    if (this.controlContainer) {
-      if (this.formControlName) {
-        this.setControl(this.controlContainer);
-      } else {
-        console.warn(
-          `Missing FormControl/Name directive on ${this.formControlName} field`
-        );
-      }
-    } else {
-      console.warn("Can't find parent FormGroup directive");
-    }
-  }
-
-  setControl({ control }: ControlContainer) {
-    this.formControl = control.get(this.formControlName);
-    this.detectChanges();
-  }
-  detectChanges() {
-    this.formControl.valueChanges
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(this.valueChange);
-  }
-  onChange: any = () => {};
-  onTouched: any = () => {};
-
   writeValue(obj: any): void {
-    if (obj) {
-      this.value = obj;
-    }
+    console.log(obj);
+    
+    // throw new Error("Method not implemented.");
   }
   registerOnChange(fn: any): void {
-    this.onChange = fn;
+    console.log(fn);
+    // throw new Error("Method not implemented.");
   }
   registerOnTouched(fn: any): void {
-    this.onTouched = fn;
+    console.log(fn);
+    // throw new Error("Method not implemented.");
   }
   setDisabledState?(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    console.log(isDisabled);
+    // throw new Error("Method not implemented.");
+  }
+  inputId: '';
+  input: HTMLInputElement;
+  type = 'text';
+  size = '';
+  value: any;
+  name: string;
+  label: string;
+  pill: boolean;
+  placeholder: string;
+  disabled: boolean;
+  readonly: boolean;
+  minlength: number;
+  maxlength: number;
+  min: number;
+  max: number;
+  step: number;
+  autofocus: boolean;
+  pattern: string;
+  required: boolean;
+  valid: boolean;
+  invalid: boolean;
+  focused: boolean;
+  valueChange = new EventEmitter();
+  focusChange = new EventEmitter()
+  blurChange = new EventEmitter();
+
+  ngOnInit(): void {
   }
 
-  ngOnDestroy() {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
 }

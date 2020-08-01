@@ -10,11 +10,17 @@
 <form [formGroup]="form">
   <div>
     <label for="name">Name</label>
-    
+
     <!-- <input type="text" formControlName="name" nxc-input="name" name="name"> -->
   </div>
 
-  <nxc-input #nxcInput first="Gui" last="Seek"></nxc-input>nx
+  <nxc-input
+    [nxcCustomOutputHoist]
+    (blurChange)="change($event)"
+    (focusChange)="change($event)"
+    (valueChange)="change($event)"
+  ></nxc-input>
+  <!-- <nxc-input #nxcInput first="Gui" last="Seek"></nxc-input>nx -->
 </form>
 
 <pre>{{ form.value | json }}</pre>

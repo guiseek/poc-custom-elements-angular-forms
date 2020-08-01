@@ -61,9 +61,9 @@ export interface FormInput extends Input {
 
   focused: boolean;
 
-  valueChange: EventEmitter;
+  valueChange: EventEmitter<any>;
 
-  focusChange: EventEmitter;
+  focusChange: EventEmitter<any>;
 
-  blurChange: EventEmitter;
+  blurChange: EventEmitter<any>;
 }
