@@ -20,7 +20,6 @@ export class CustomOutputHoistDirective {
 
   constructor(private hoist: ElementRef<Element>) {
     console.log('this.triggers: ', this.triggers);
-    
   }
   context() { return this };
 
@@ -29,7 +28,7 @@ export class CustomOutputHoistDirective {
     .forEach(trigger => {
       this.hoist.nativeElement.addEventListener(trigger, ({ detail }: CustomEvent) => {
         console.log(this.context.caller);
-        
+
         this[trigger].emit(detail);
       })
     })

@@ -21,6 +21,7 @@
       "@nxc/ui/form/angular": ["libs/ui/form/angular/src/index.ts"],
       "@nxc/ui/form/custom": ["libs/ui/form/custom/src/index.ts"],
       "@nxc/ui/form/custom/loader": ["dist/libs/ui/form/custom/loader"],
+      "@nxc/util/testing": ["libs/util/testing/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
