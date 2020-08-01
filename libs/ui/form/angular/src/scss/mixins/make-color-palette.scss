@@ -1,0 +1,8 @@
+// Generates custom properties with colors of lightness 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, and 95 percent
+@mixin make-color-palette($name) {
+  @for $i from 5 through 95 {
+    @if $i % 5 == 0 {
+      --nxc-color-#{$name}-#{$i}: hsl(var(--nxc-color-#{$name}-hue), var(--nxc-color-#{$name}-saturation), #{$i * 1%});
+    }
+  }
+}

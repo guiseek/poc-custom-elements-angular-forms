@@ -17,37 +17,29 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
   "projects": {
-    "ui-forms": {
-      "tags": [
-        "type:ui"
-      ]
-    },
     "demo": {
-      "tags": [
-        "type:app"
-      ]
+      "tags": ["type:app"]
     },
     "demo-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "demo"
-      ]
+      "implicitDependencies": ["demo"]
     },
-    "ui-custom-forms": {
-      "tags": [
-        "type:ui",
-        "framework:stencil"
-      ]
+    "ui-core": {
+      "tags": ["type:ui", "scope:core"]
+    },
+    "ui-form-angular": {
+      "tags": ["type:ui"]
+    },
+    "ui-form-custom": {
+      "tags": ["type:ui", "framework:stencil"]
+    },
+    "ui-form-core": {
+      "tags": ["type:ui", "scope:core"]
     }
   }
 }

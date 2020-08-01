@@ -10,9 +10,11 @@
 <form [formGroup]="form">
   <div>
     <label for="name">Name</label>
-    <nxc-input formControlName="name"></nxc-input>
+    
     <!-- <input type="text" formControlName="name" nxc-input="name" name="name"> -->
   </div>
+
+  <nxc-input #nxcInput first="Gui" last="Seek"></nxc-input>nx
 </form>
 
 <pre>{{ form.value | json }}</pre>

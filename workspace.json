@@ -1,50 +1,6 @@
 {
   "version": 1,
   "projects": {
-    "ui-forms": {
-      "projectType": "library",
-      "root": "libs/ui/forms",
-      "sourceRoot": "libs/ui/forms/src",
-      "prefix": "nxc",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/forms/tsconfig.lib.json",
-            "project": "libs/ui/forms/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/ui/forms/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui/forms/tsconfig.lib.json",
-              "libs/ui/forms/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ui/forms/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/forms/jest.config.js",
-            "tsConfig": "libs/ui/forms/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/forms/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "demo": {
       "projectType": "application",
       "schematics": {
@@ -165,7 +121,78 @@
         }
       }
     },
-    "ui-custom-forms": {
+    "ui-core": {
+      "root": "libs/ui/core",
+      "sourceRoot": "libs/ui/core/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/ui/core/tsconfig.lib.json",
+              "libs/ui/core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/core/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/core/jest.config.js",
+            "tsConfig": "libs/ui/core/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-form-angular": {
+      "projectType": "library",
+      "root": "libs/ui/form/angular",
+      "sourceRoot": "libs/ui/form/angular/src",
+      "prefix": "nxc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/ui/form/angular/tsconfig.lib.json",
+            "project": "libs/ui/form/angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/form/angular/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui/form/angular/tsconfig.lib.json",
+              "libs/ui/form/angular/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/form/angular/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/form/angular/jest.config.js",
+            "tsConfig": "libs/ui/form/angular/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/form/angular/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "ui-form-custom": {
       "projectType": "library",
       "schematics": {
         "@nxext/stencil:component": {
@@ -173,37 +200,64 @@
           "storybook": false
         }
       },
-      "root": "libs/ui/custom/forms",
-      "sourceRoot": "libs/ui/custom/forms/src",
+      "root": "libs/ui/form/custom",
+      "sourceRoot": "libs/ui/form/custom/src",
       "architect": {
         "build": {
           "builder": "@nxext/stencil:build",
           "options": {
             "projectType": "library",
-            "configPath": "libs/ui/custom/forms/stencil.config.ts"
+            "configPath": "libs/ui/form/custom/stencil.config.ts"
           }
         },
         "test": {
           "builder": "@nxext/stencil:test",
           "options": {
             "projectType": "library",
-            "configPath": "libs/ui/custom/forms/stencil.config.ts"
+            "configPath": "libs/ui/form/custom/stencil.config.ts"
           }
         },
         "e2e": {
           "builder": "@nxext/stencil:e2e",
           "options": {
             "projectType": "library",
-            "configPath": "libs/ui/custom/forms/stencil.config.ts"
+            "configPath": "libs/ui/form/custom/stencil.config.ts"
           }
         },
         "serve": {
           "builder": "@nxext/stencil:build",
           "options": {
             "projectType": "library",
-            "configPath": "libs/ui/custom/forms/stencil.config.ts",
+            "configPath": "libs/ui/form/custom/stencil.config.ts",
             "serve": true,
             "watch": true
+          }
+        }
+      }
+    },
+    "ui-form-core": {
+      "root": "libs/ui/form/core",
+      "sourceRoot": "libs/ui/form/core/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/ui/form/core/tsconfig.lib.json",
+              "libs/ui/form/core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/form/core/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/form/core/jest.config.js",
+            "tsConfig": "libs/ui/form/core/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -278,5 +332,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "ui-forms"
+  "defaultProject": "demo"
 }

@@ -1,15 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-@mixin make-color-palette($name) {
-  @for $i from 5 through 95 {
-    @if $i % 5 == 0 {
-      --nxc-color-#{$name}-#{$i}: hsl(
-        var(--nxc-color-#{$name}-hue),
-        var(--nxc-color-#{$name}-saturation),
-        #{$i * 1%}
-      );
-    }
-  }
-}
+/*! Shoelace */
+
+@import 'mixins/make-color-palette';
+
 :root {
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Color tokens
@@ -102,9 +94,8 @@
 
   // Fonts
   --nxc-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-  --nxc-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol';
+  --nxc-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --nxc-font-serif: Georgia, 'Times New Roman', serif;
 
   // Font sizes
@@ -236,12 +227,7 @@
   // Overlay tokens
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  --nxc-overlay-background-color: hsla(
-    var(--nxc-color-gray-hue),
-    var(--nxc-color-gray-saturation),
-    20%,
-    0.5
-  );
+  --nxc-overlay-background-color: hsla(var(--nxc-color-gray-hue), var(--nxc-color-gray-saturation), 20%, 0.5);
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Tooltip tokens
@@ -266,4 +252,16 @@
   --nxc-z-index-dialog: 800;
   --nxc-z-index-dropdown: 900;
   --nxc-z-index-tooltip: 1000;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Internal utility classes
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[hidden] {
+  display: none !important;
+}
+
+.nxc-scroll-lock {
+  overflow: hidden !important;
 }

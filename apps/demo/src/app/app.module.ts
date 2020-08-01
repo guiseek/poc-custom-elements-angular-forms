@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { UiFormsModule } from '@nxc/ui/forms';
+import { UiFormAngularModule } from '@nxc/ui/form/angular';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    UiFormsModule,
+    UiFormAngularModule,
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
   ],
   providers: [],
