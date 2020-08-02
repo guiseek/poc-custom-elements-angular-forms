@@ -20,4 +20,4 @@ import { InputHoistDirective } from './adapters/input-hoist.directive';
     InputHoistDirective,
   ],
 })
-export class UiFormAngularModule {}
+export class UiAngularModule {}

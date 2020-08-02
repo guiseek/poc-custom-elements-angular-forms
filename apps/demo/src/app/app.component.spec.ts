@@ -1,4 +1,4 @@
-import { UiFormAngularModule } from '@nxc/ui/form/angular';
+import { UiAngularModule } from '@nxc/ui/angular';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -8,7 +8,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        UiFormAngularModule
+        UiAngularModule
       ],
       declarations: [AppComponent],
     }).compileComponents();

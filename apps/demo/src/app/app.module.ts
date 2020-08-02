@@ -3,14 +3,14 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UiFormAngularModule } from '@nxc/ui/form/angular';
+import { UiAngularModule } from '@nxc/ui/angular';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    UiFormAngularModule,
+    UiAngularModule,
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
   ],
   providers: [],
