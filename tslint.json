@@ -57,7 +57,7 @@
       true,
       {
         "enforceBuildableLibDependency": true,
-        "allow": ["@nxc/ui/form/core"],
+        "allow": ["@nxc/ui/form/core", "@nxc/util/testing"],
         "depConstraints": [
           {
             "sourceTag": "*",
