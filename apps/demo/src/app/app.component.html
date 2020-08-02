@@ -7,26 +7,36 @@
   <h1>Welcome to {{ title }}!</h1>
 </header>
 
-<form [formGroup]="form">
-  <nxc-input
-    label="Email"
-    name="email"
-    formControlName="email"
-    (valueChange)="valueChange($event)"
-  ></nxc-input>
+<main role="main">
 
-  <nxc-input
-    #nxcInput
-    label="Senha"
-    type="password"
-    name="password"
-    formControlName="password"
-    (focusChange)="focusChange($event)"
-    (valueChange)="valueChange($event)"
-    (blurChange)="blurChange($event)"
-  ></nxc-input>
-</form>
+  <form [formGroup]="form">
+    <nxc-input
+      label="Email"
+      name="email"
+      formControlName="email"
+      (focusChange)="focusChange($event)"
+      (blurChange)="blurChange($event)"
+      (valueChange)="valueChange($event)"
+    ></nxc-input>
 
-<pre>{{ form.value | json }}</pre>
+    <nxc-input
+      #nxcInput
+      label="Senha"
+      type="password"
+      name="password"
+      formControlName="password"
+      (valueChange)="valueChange($event)"
+    >
+      <span slot="suffix">suffix</span>
+      <div slot="help-text">What would you like people to call you?</div>
+    </nxc-input>
 
-<router-outlet></router-outlet>
+
+  </form>
+
+  <pre>{{ form.value | json }}</pre>
+
+  <router-outlet></router-outlet>
+
+</main>
+

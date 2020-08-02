@@ -1,1 +1,1 @@
-export type Size = 'small' | 'medium' | 'large' | string;
+export type Size = 'small' | 'medium' | 'large';

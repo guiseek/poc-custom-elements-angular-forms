@@ -1,4 +1,4 @@
-import { FormInput, EventEmitter, InputType } from '@nxc/ui/core';
+import { FormInput, EventEmitter, InputType, Size } from '@nxc/ui/core';
 
 import {
   h,
@@ -18,9 +18,9 @@ let id = 0;
   shadow: true,
 })
 export class NxcInput implements FormInput {
-  inputId = `input-${++id}`;
-  labelId = `input-label-${id}`;
-  helpTextId = `input-help-text-${id}`;
+  inputId = `input${++id}`;
+  labelId = `input_label${id}`;
+  helpTextId = `input_help_text${id}`;
   input: HTMLInputElement;
 
   @Element() host: HTMLNxcInputElement;
@@ -30,7 +30,7 @@ export class NxcInput implements FormInput {
 
   @Prop() type: InputType = 'text';
 
-  @Prop() size = 'medium';
+  @Prop() size: Size = 'medium';
 
   @Prop() name = '';
 

@@ -5,8 +5,28 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { InputType } from "@nxc/ui/core";
+import { ButtonType, InputType, Size } from "@nxc/ui/core";
 export namespace Components {
+    interface NxcButton {
+        "caret": boolean;
+        "circle": boolean;
+        "disabled": boolean;
+        "loading": boolean;
+        "name": string;
+        "pill": boolean;
+        /**
+          * Removes focus from the button.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus on the button.
+         */
+        "setFocus": () => Promise<void>;
+        "size": Size;
+        "submit": boolean;
+        "type": ButtonType;
+        "value": string;
+    }
     interface NxcInput {
         "autofocus": boolean;
         "clearable": boolean;
@@ -35,7 +55,7 @@ export namespace Components {
           * Coloca foco no elemento.
          */
         "setFocus": () => Promise<void>;
-        "size": string;
+        "size": Size;
         "step": number;
         "togglePassword": boolean;
         "type": InputType;
@@ -44,6 +64,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLNxcButtonElement extends Components.NxcButton, HTMLStencilElement {
+    }
+    var HTMLNxcButtonElement: {
+        prototype: HTMLNxcButtonElement;
+        new (): HTMLNxcButtonElement;
+    };
     interface HTMLNxcInputElement extends Components.NxcInput, HTMLStencilElement {
     }
     var HTMLNxcInputElement: {
@@ -51,10 +77,25 @@ declare global {
         new (): HTMLNxcInputElement;
     };
     interface HTMLElementTagNameMap {
+        "nxc-button": HTMLNxcButtonElement;
         "nxc-input": HTMLNxcInputElement;
     }
 }
 declare namespace LocalJSX {
+    interface NxcButton {
+        "caret"?: boolean;
+        "circle"?: boolean;
+        "disabled"?: boolean;
+        "loading"?: boolean;
+        "name"?: string;
+        "onNxcBlur"?: (event: CustomEvent<any>) => void;
+        "onNxcFocus"?: (event: CustomEvent<any>) => void;
+        "pill"?: boolean;
+        "size"?: Size;
+        "submit"?: boolean;
+        "type"?: ButtonType;
+        "value"?: string;
+    }
     interface NxcInput {
         "autofocus"?: boolean;
         "clearable"?: boolean;
@@ -74,7 +115,7 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         "readonly"?: boolean;
         "required"?: boolean;
-        "size"?: string;
+        "size"?: Size;
         "step"?: number;
         "togglePassword"?: boolean;
         "type"?: InputType;
@@ -82,6 +123,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface IntrinsicElements {
+        "nxc-button": NxcButton;
         "nxc-input": NxcInput;
     }
 }
@@ -89,6 +131,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "nxc-button": LocalJSX.NxcButton & JSXBase.HTMLAttributes<HTMLNxcButtonElement>;
             "nxc-input": LocalJSX.NxcInput & JSXBase.HTMLAttributes<HTMLNxcInputElement>;
         }
     }

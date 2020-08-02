@@ -45,6 +45,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   valueChange({ detail }: CustomEvent) {
     console.log('valueChange: ', detail);
   }
+
+  onClick() {
+    console.log('clicked');
+
+  }
   ngAfterViewInit() {
     window.setTimeout(() => {
       console.log(this.custom.nativeElement);
