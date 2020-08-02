@@ -1,7 +1,4 @@
-// import { ID } from './../id';
-// import { InputType } from './input-type';
-// import { EventEmitter } from '../event-emitter';
-import { ID, Input, EventEmitter, InputType, Size } from '../index';
+import { ID, Input, EventEmitter, InputType, Size } from '../../index';
 
 export interface FormInput extends Input {
   inputId: ID;

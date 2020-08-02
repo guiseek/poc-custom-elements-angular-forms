@@ -1,8 +1,11 @@
-export * from './form/input-type';
-export * from './form/form-input';
-export * from './button/button';
-export * from './button/button-type';
+export * from './component/component-type';
 
+export * from './component/form/input-type';
+export * from './component/form/form-input';
+export * from './component/button/button';
+export * from './component/button/button-type';
+
+export * from './component/alert/alert';
 
 export * from './id';
 export * from './input';

@@ -5,8 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonType, InputType, Size } from "@nxc/ui/core";
+import { ButtonType, ComponentType, InputType, Size } from "@nxc/ui/core";
 export namespace Components {
+    interface NxcAlert {
+        "closable": boolean;
+        "hide": () => Promise<boolean>;
+        "open": boolean;
+        "show": () => Promise<boolean>;
+        "type": ComponentType;
+    }
     interface NxcButton {
         "caret": boolean;
         "circle": boolean;
@@ -64,6 +71,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLNxcAlertElement extends Components.NxcAlert, HTMLStencilElement {
+    }
+    var HTMLNxcAlertElement: {
+        prototype: HTMLNxcAlertElement;
+        new (): HTMLNxcAlertElement;
+    };
     interface HTMLNxcButtonElement extends Components.NxcButton, HTMLStencilElement {
     }
     var HTMLNxcButtonElement: {
@@ -77,11 +90,21 @@ declare global {
         new (): HTMLNxcInputElement;
     };
     interface HTMLElementTagNameMap {
+        "nxc-alert": HTMLNxcAlertElement;
         "nxc-button": HTMLNxcButtonElement;
         "nxc-input": HTMLNxcInputElement;
     }
 }
 declare namespace LocalJSX {
+    interface NxcAlert {
+        "closable"?: boolean;
+        "onNxcAfterHide"?: (event: CustomEvent<any>) => void;
+        "onNxcAfterShow"?: (event: CustomEvent<any>) => void;
+        "onNxcHide"?: (event: CustomEvent<any>) => void;
+        "onNxcShow"?: (event: CustomEvent<any>) => void;
+        "open"?: boolean;
+        "type"?: ComponentType;
+    }
     interface NxcButton {
         "caret"?: boolean;
         "circle"?: boolean;
@@ -123,6 +146,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface IntrinsicElements {
+        "nxc-alert": NxcAlert;
         "nxc-button": NxcButton;
         "nxc-input": NxcInput;
     }
@@ -131,6 +155,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "nxc-alert": LocalJSX.NxcAlert & JSXBase.HTMLAttributes<HTMLNxcAlertElement>;
             "nxc-button": LocalJSX.NxcButton & JSXBase.HTMLAttributes<HTMLNxcButtonElement>;
             "nxc-input": LocalJSX.NxcInput & JSXBase.HTMLAttributes<HTMLNxcInputElement>;
         }

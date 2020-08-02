@@ -1,5 +1,5 @@
-import { EventEmitter } from '../event-emitter';
-import { Size } from '../size';
+import { EventEmitter } from '../../event-emitter';
+import { Size } from '../../size';
 import { ButtonType } from './button-type';
 
 export interface Button {

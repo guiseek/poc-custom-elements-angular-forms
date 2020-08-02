@@ -9,6 +9,12 @@
 
 <main role="main">
 
+  <nxc-alert type="primary" open>
+    <nxc-icon slot="icon" name="info-circle"></nxc-icon>
+    <strong>This is super informative</strong><br>
+    You can tell by how pretty the alert is.
+  </nxc-alert>
+
   <form [formGroup]="form">
     <nxc-input
       label="Email"
@@ -27,8 +33,6 @@
       formControlName="password"
       (valueChange)="valueChange($event)"
     >
-      <span slot="suffix">suffix</span>
-      <div slot="help-text">What would you like people to call you?</div>
     </nxc-input>
 
 
