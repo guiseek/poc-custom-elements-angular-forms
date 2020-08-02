@@ -23,7 +23,12 @@
             "aot": true,
             "assets": [
               "apps/demo/src/favicon.ico",
-              "apps/demo/src/assets"
+              "apps/demo/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/ui/design/icons",
+                "output": "/icons/"
+              }
             ],
             "styles": [
               "apps/demo/src/styles.scss"
@@ -237,6 +242,12 @@
             "configPath": "libs/ui/custom/stencil.config.ts",
             "serve": true,
             "watch": true
+          }
+        },
+        "make-icons": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "npx ts-node --project tools/tsconfig.tools.json tools/scripts/make-icons.ts"
           }
         }
       }

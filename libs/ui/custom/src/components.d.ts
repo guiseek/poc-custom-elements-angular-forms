@@ -34,6 +34,34 @@ export namespace Components {
         "type": ButtonType;
         "value": string;
     }
+    interface NxcIcon {
+        /**
+          * The icon label
+         */
+        "label": string;
+        /**
+          * The icon name
+         */
+        "name": string;
+        /**
+          * The icon path
+         */
+        "src": string;
+    }
+    interface NxcIconButton {
+        /**
+          * The first name
+         */
+        "first": string;
+        /**
+          * The last name
+         */
+        "last": string;
+        /**
+          * The middle name
+         */
+        "middle": string;
+    }
     interface NxcInput {
         "autofocus": boolean;
         "clearable": boolean;
@@ -83,6 +111,18 @@ declare global {
         prototype: HTMLNxcButtonElement;
         new (): HTMLNxcButtonElement;
     };
+    interface HTMLNxcIconElement extends Components.NxcIcon, HTMLStencilElement {
+    }
+    var HTMLNxcIconElement: {
+        prototype: HTMLNxcIconElement;
+        new (): HTMLNxcIconElement;
+    };
+    interface HTMLNxcIconButtonElement extends Components.NxcIconButton, HTMLStencilElement {
+    }
+    var HTMLNxcIconButtonElement: {
+        prototype: HTMLNxcIconButtonElement;
+        new (): HTMLNxcIconButtonElement;
+    };
     interface HTMLNxcInputElement extends Components.NxcInput, HTMLStencilElement {
     }
     var HTMLNxcInputElement: {
@@ -92,6 +132,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "nxc-alert": HTMLNxcAlertElement;
         "nxc-button": HTMLNxcButtonElement;
+        "nxc-icon": HTMLNxcIconElement;
+        "nxc-icon-button": HTMLNxcIconButtonElement;
         "nxc-input": HTMLNxcInputElement;
     }
 }
@@ -118,6 +160,39 @@ declare namespace LocalJSX {
         "submit"?: boolean;
         "type"?: ButtonType;
         "value"?: string;
+    }
+    interface NxcIcon {
+        /**
+          * The icon label
+         */
+        "label"?: string;
+        /**
+          * The icon name
+         */
+        "name"?: string;
+        /**
+          * Emitted when the icon failed to load.
+         */
+        "onNxcError"?: (event: CustomEvent<any>) => void;
+        "onNxcLoad"?: (event: CustomEvent<any>) => void;
+        /**
+          * The icon path
+         */
+        "src"?: string;
+    }
+    interface NxcIconButton {
+        /**
+          * The first name
+         */
+        "first"?: string;
+        /**
+          * The last name
+         */
+        "last"?: string;
+        /**
+          * The middle name
+         */
+        "middle"?: string;
     }
     interface NxcInput {
         "autofocus"?: boolean;
@@ -148,6 +223,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "nxc-alert": NxcAlert;
         "nxc-button": NxcButton;
+        "nxc-icon": NxcIcon;
+        "nxc-icon-button": NxcIconButton;
         "nxc-input": NxcInput;
     }
 }
@@ -157,6 +234,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "nxc-alert": LocalJSX.NxcAlert & JSXBase.HTMLAttributes<HTMLNxcAlertElement>;
             "nxc-button": LocalJSX.NxcButton & JSXBase.HTMLAttributes<HTMLNxcButtonElement>;
+            "nxc-icon": LocalJSX.NxcIcon & JSXBase.HTMLAttributes<HTMLNxcIconElement>;
+            "nxc-icon-button": LocalJSX.NxcIconButton & JSXBase.HTMLAttributes<HTMLNxcIconButtonElement>;
             "nxc-input": LocalJSX.NxcInput & JSXBase.HTMLAttributes<HTMLNxcInputElement>;
         }
     }

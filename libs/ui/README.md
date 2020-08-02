@@ -3,7 +3,12 @@
 Diretório de agrupamento para bibliotecas de interface do usuário.
 
 
-## Estrutura
+## Bibliotecas
+
+- [ui-angular](libs/ui/angular/README.md)
+- [ui-custom](libs/ui/custom/README.md)
+- [ui-styles](libs/ui/styles/README.md)
+- [ui-core](libs/ui/core/README.md)
 
 ### Diretórios
 

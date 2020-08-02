@@ -3,34 +3,24 @@ import { NxcAlert } from './nxc-alert';
 
 describe('nxc-alert', () => {
   it('renders', async () => {
-    const {root} = await newSpecPage({
+    const { root } = await newSpecPage({
       components: [NxcAlert],
-      html: '<nxc-alert></nxc-alert>'
+      html: '<nxc-alert></nxc-alert>',
     });
     expect(root).toEqualHtml(`
       <nxc-alert>
         <mock:shadow-root>
-          <div>
-            Hello, World! I'm
+          <div aria-hidden="" class="alert alert--primary" part="base" role="alert">
+            <span class="alert__icon" part="icon">
+               <slot name="icon"></slot>
+             </span>
+             <span class="alert__message" part="message">
+               <slot></slot>
+            </span>
           </div>
         </mock:shadow-root>
       </nxc-alert>
     `);
   });
 
-  it('renders with values', async () => {
-    const {root} = await newSpecPage({
-      components: [NxcAlert],
-      html: `<nxc-alert first="Stencil" last="'Don't call me a framework' JS"></nxc-alert>`
-    });
-    expect(root).toEqualHtml(`
-      <nxc-alert first="Stencil" last="'Don't call me a framework' JS">
-        <mock:shadow-root>
-          <div>
-            Hello, World! I'm Stencil 'Don't call me a framework' JS
-          </div>
-        </mock:shadow-root>
-      </nxc-alert>
-    `);
-  });
 });
