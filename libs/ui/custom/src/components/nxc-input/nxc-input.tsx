@@ -1,4 +1,4 @@
-import { FormInput, EventEmitter, InputType } from '@nxc/ui/form/core';
+import { FormInput, EventEmitter, InputType } from '@nxc/ui/core';
 
 import {
   h,

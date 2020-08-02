@@ -195,76 +195,6 @@
         }
       }
     },
-    "ui-form-custom": {
-      "projectType": "library",
-      "schematics": {
-        "@nxext/stencil:component": {
-          "style": "scss",
-          "storybook": false
-        }
-      },
-      "root": "libs/ui/form/custom",
-      "sourceRoot": "libs/ui/form/custom/src",
-      "architect": {
-        "build": {
-          "builder": "@nxext/stencil:build",
-          "options": {
-            "projectType": "library",
-            "configPath": "libs/ui/form/custom/stencil.config.ts"
-          }
-        },
-        "test": {
-          "builder": "@nxext/stencil:test",
-          "options": {
-            "projectType": "library",
-            "configPath": "libs/ui/form/custom/stencil.config.ts"
-          }
-        },
-        "e2e": {
-          "builder": "@nxext/stencil:e2e",
-          "options": {
-            "projectType": "library",
-            "configPath": "libs/ui/form/custom/stencil.config.ts"
-          }
-        },
-        "serve": {
-          "builder": "@nxext/stencil:build",
-          "options": {
-            "projectType": "library",
-            "configPath": "libs/ui/form/custom/stencil.config.ts",
-            "serve": true,
-            "watch": true
-          }
-        }
-      }
-    },
-    "ui-form-core": {
-      "root": "libs/ui/form/core",
-      "sourceRoot": "libs/ui/form/core/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "libs/ui/form/core/tsconfig.lib.json",
-              "libs/ui/form/core/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ui/form/core/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/form/core/jest.config.js",
-            "tsConfig": "libs/ui/form/core/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "util-testing": {
       "root": "libs/util/testing",
       "sourceRoot": "libs/util/testing/src",
@@ -287,6 +217,49 @@
             "jestConfig": "libs/util/testing/jest.config.js",
             "tsConfig": "libs/util/testing/tsconfig.spec.json",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-custom": {
+      "projectType": "library",
+      "schematics": {
+        "@nxext/stencil:component": {
+          "style": "scss",
+          "storybook": false
+        }
+      },
+      "root": "libs/ui/custom",
+      "sourceRoot": "libs/ui/custom/src",
+      "architect": {
+        "build": {
+          "builder": "@nxext/stencil:build",
+          "options": {
+            "projectType": "library",
+            "configPath": "libs/ui/custom/stencil.config.ts"
+          }
+        },
+        "test": {
+          "builder": "@nxext/stencil:test",
+          "options": {
+            "projectType": "library",
+            "configPath": "libs/ui/custom/stencil.config.ts"
+          }
+        },
+        "e2e": {
+          "builder": "@nxext/stencil:e2e",
+          "options": {
+            "projectType": "library",
+            "configPath": "libs/ui/custom/stencil.config.ts"
+          }
+        },
+        "serve": {
+          "builder": "@nxext/stencil:build",
+          "options": {
+            "projectType": "library",
+            "configPath": "libs/ui/custom/stencil.config.ts",
+            "serve": true,
+            "watch": true
           }
         }
       }

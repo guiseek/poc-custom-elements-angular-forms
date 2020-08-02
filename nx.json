@@ -35,14 +35,11 @@
     "ui-form-angular": {
       "tags": ["type:ui"]
     },
-    "ui-form-custom": {
-      "tags": ["type:ui", "framework:stencil"]
-    },
-    "ui-form-core": {
-      "tags": ["type:ui", "scope:core"]
-    },
     "util-testing": {
       "tags": []
+    },
+    "ui-custom": {
+      "tags": ["type:ui", "framework:stencil"]
     }
   }
 }

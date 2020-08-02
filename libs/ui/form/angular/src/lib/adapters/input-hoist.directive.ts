@@ -1,6 +1,6 @@
 import { takeUntil } from 'rxjs/operators';
-import { FormInput } from '@nxc/ui/form/core';
-import { Components } from '@nxc/ui/form/custom';
+import { FormInput } from '@nxc/ui/core';
+import { Components } from '@nxc/ui/custom';
 import {
   Host,
   Input,

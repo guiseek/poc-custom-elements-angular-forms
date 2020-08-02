@@ -7,7 +7,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Components } from '@nxc/ui/form/custom';
+import { Components } from '@nxc/ui/custom';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

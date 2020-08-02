@@ -1,6 +1,7 @@
-import { Input, ID, Size } from '@nxc/ui/core';
-import { InputType } from './input-type';
-import { EventEmitter } from './event-emitter';
+// import { ID } from './../id';
+// import { InputType } from './input-type';
+// import { EventEmitter } from '../event-emitter';
+import { ID, Input, EventEmitter, InputType, Size } from '../index';
 
 export interface FormInput extends Input {
   inputId: ID;
