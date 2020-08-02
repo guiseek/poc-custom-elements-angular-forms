@@ -49,18 +49,10 @@ export namespace Components {
         "src": string;
     }
     interface NxcIconButton {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "disabled": boolean;
+        "label": string;
+        "name": string;
+        "src": string;
     }
     interface NxcInput {
         "autofocus": boolean;
@@ -181,18 +173,10 @@ declare namespace LocalJSX {
         "src"?: string;
     }
     interface NxcIconButton {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "disabled"?: boolean;
+        "label"?: string;
+        "name"?: string;
+        "src"?: string;
     }
     interface NxcInput {
         "autofocus"?: boolean;

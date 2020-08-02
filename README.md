@@ -22,8 +22,12 @@ A ideia é usar componentes em diversas plataformas com o mínimo de impacto, te
   - [ui-styles](libs/ui/styles/README.md)
   - [ui-core](libs/ui/core/README.md)
 
+
 ---
+
 ## Frameworks & Tools
+
+[Shoelace](https://github.com/shoelace-style/shoelace) como base para custom elements
 
 ```elixir
 ➜ nxc git:(master) ✗ nx list
