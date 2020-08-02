@@ -12,109 +12,22 @@ A ideia é usar componentes em diversas plataformas com o mínimo de impacto, te
 - Mono repositório
 - Clean Architecture
 
+---
+
+## Bibliotecas
+
+- [UI](libs/ui/README.md)
+  - [ui-angular](libs/ui/angular/README.md)
+  - [ui-custom](libs/ui/custom/README.md)
+  - [ui-styles](libs/ui/styles/README.md)
+  - [ui-core](libs/ui/core/README.md)
+
+---
 ## Frameworks & Tools
 
-- TypeScript
-- Angular
-- StencilJS
-- Nx tools
-
----
-
-## Estrutura
-
-### Diretórios
-
-```
-├── ui
-│   ├── core
-│   ├── form
-│   │   ├── angular
-│   │   ├── core
-│   │   └── custom
-│   └── styles
-│       ├── core
-│       ├── global.scss
-│       ├── mixins
-│       ├── partials
-│       └── tokens
-```
-
-<table>
-<tr><td>
-
-![Gráfico de dependências](libs/assets/ui-dep-graph.svg)
-
-</td><td style="vertical-align: top">
-
-<div style="height: 40px">
-<span style="font-size: 42.6px"> ☜ </span>
-<span style="font-size: 32.6px"> Demo </span>
-</div>
-<div style="height: 160px">
-
-Tipo de projeto: `application`
-Framework: `angular`
-
-Serve:
-`nx run serve`
-
-Build:
-`nx run demo:build --prod`
-
-</div>
-<div style="height: 40px">
-<span style="font-size: 42.6px"> ☜ </span>
-<span style="font-size: 32.6px"> UI Form Angular </span>
-</div>
-<div style="height: 160px">
-
-Tipo de projeto: `library`
-Framework: `angular`
-
-</div>
-<div style="height: 40px">
-<span style="font-size: 42.6px"> ☜ </span>
-<span style="font-size: 32.6px"> UI Form Custom </span>
-</div>
-<div style="height: 160px">
-
-Tipo de projeto: `library`
-Framework: `stenciljs`
-
-Serve:
-`nx run ui-form-custom:serve`
-
-Build:
-`nx run ui-form-custom:build`
-
-</div>
-<div style="height: 40px">
-<span style="font-size: 42.6px"> ☜ </span>
-<span style="font-size: 32.6px"> UI Form Core </span>
-</div>
-<div style="height: 160px">
-
-Tipo de projeto: `library`
-Framework: `nx workspace`
-
-</div>
-<div style="height: 40px">
-<span style="font-size: 42.6px"> ☜ </span>
-<span style="font-size: 32.6px"> UI Core </span>
-</div>
-<div>
-
-Tipo de projeto: `library`
-Framework: `nx workspace`
-
-</div>
-</td></tr>
-</table>
-
----
-
 ```elixir
+➜ nxc git:(master) ✗ nx list
+
 > NX:  Installed plugins:
 
   @nrwl/jest (builders,schematics)
@@ -122,9 +35,8 @@ Framework: `nx workspace`
   @nrwl/cypress (builders,schematics)
   @nrwl/workspace (builders,schematics)
   @nxext/stencil (builders,schematics)
-```
 
-```elixir
+
 > NX:  Also available:
 
   @nrwl/bazel (schematics)
@@ -137,47 +49,22 @@ Framework: `nx workspace`
   @nrwl/react (builders,schematics)
   @nrwl/storybook (builders,schematics)
   @nrwl/web (builders,schematics)
+
+
+> NX:  Community plugins:
+
+  @nxtend/ionic-react - An Nx plugin for developing Ionic React applications and libraries
+  @nxtend/capacitor - An Nx plugin for developing cross-platform applications using Capacitor
+  @angular-architects/ddd - Nx plugin for structuring a monorepo with domains and layers
+  @offeringsolutions/nx-karma-to-jest - Nx plugin for replacing karma with jest in an Nx workspace
+  @flowaccount/nx-serverless - Nx plugin for node/angular-universal schematics and deployment builders in an Nx workspace
+  @dev-thought/nx-deploy-it - Nx plugin to deploy applications on your favorite cloud provider
+  @offeringsolutions/nx-protractor-to-cypress - Nx plugin to replace protractor with cypress in an nx workspace
+  @gperdomor/nx-docker - Nx plugin to build docker images of your affected apps
+  @angular-custom-builders/lite-serve - Nx plugin to run the e2e test on an existing dist folder
+  @nx-plus/vue - Nx plugin adding first class support for Vue in your Nx workspace.
+  @nx-plus/docusaurus - Nx plugin adding first class support for Docusaurus in your Nx workspace.
+  @twittwer/compodoc - Nx Plugin to integrate the generation of documentation with Compodoc in the Nx workflow
+  @joelcode/gcp-function - Nx plugin to generate, test, lint, build, serve, & deploy Google Cloud Function
+  @nx-go/nx-go - Nx plugin to use Go in a Nx workspace
 ```
-
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
-
-## Development
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Build
-
-1. Custom elements
-   Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
