@@ -1,269 +1,271 @@
+@import 'tokens/default.scss';
+
 /* You can add global styles to this file, and also import other style files */
-@mixin make-color-palette($name) {
-  @for $i from 5 through 95 {
-    @if $i % 5 == 0 {
-      --nxc-color-#{$name}-#{$i}: hsl(
-        var(--nxc-color-#{$name}-hue),
-        var(--nxc-color-#{$name}-saturation),
-        #{$i * 1%}
-      );
-    }
-  }
-}
-:root {
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Color tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// @mixin make-color-palette($name) {
+//   @for $i from 5 through 95 {
+//     @if $i % 5 == 0 {
+//       --nxc-color-#{$name}-#{$i}: hsl(
+//         var(--nxc-color-#{$name}-hue),
+//         var(--nxc-color-#{$name}-saturation),
+//         #{$i * 1%}
+//       );
+//     }
+//   }
+// }
+// :root {
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // Color tokens
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  --nxc-color-primary-hue: 203;
-  --nxc-color-primary-saturation: 100%;
-  --nxc-color-primary-text: var(--nxc-color-white);
+//   --nxc-color-primary-hue: 203;
+//   --nxc-color-primary-saturation: 100%;
+//   --nxc-color-primary-text: var(--nxc-color-white);
 
-  --nxc-color-success-hue: 110;
-  --nxc-color-success-saturation: 70%;
-  --nxc-color-success-text: var(--nxc-color-white);
+//   --nxc-color-success-hue: 110;
+//   --nxc-color-success-saturation: 70%;
+//   --nxc-color-success-text: var(--nxc-color-white);
 
-  --nxc-color-info-hue: var(--nxc-color-primary-hue);
-  --nxc-color-info-saturation: 10%;
-  --nxc-color-info-text: var(--nxc-color-white);
+//   --nxc-color-info-hue: var(--nxc-color-primary-hue);
+//   --nxc-color-info-saturation: 10%;
+//   --nxc-color-info-text: var(--nxc-color-white);
 
-  --nxc-color-warning-hue: 40;
-  --nxc-color-warning-saturation: 90%;
-  --nxc-color-warning-text: var(--nxc-color-white);
+//   --nxc-color-warning-hue: 40;
+//   --nxc-color-warning-saturation: 90%;
+//   --nxc-color-warning-text: var(--nxc-color-white);
 
-  --nxc-color-danger-hue: 10;
-  --nxc-color-danger-saturation: 95%;
-  --nxc-color-danger-text: var(--nxc-color-white);
+//   --nxc-color-danger-hue: 10;
+//   --nxc-color-danger-saturation: 95%;
+//   --nxc-color-danger-text: var(--nxc-color-white);
 
-  --nxc-color-gray-hue: var(--nxc-color-primary-hue);
-  --nxc-color-gray-saturation: 10%;
-  --nxc-color-gray-text: var(--nxc-color-white);
+//   --nxc-color-gray-hue: var(--nxc-color-primary-hue);
+//   --nxc-color-gray-saturation: 10%;
+//   --nxc-color-gray-text: var(--nxc-color-white);
 
-  --nxc-color-white: white;
-  --nxc-color-black: black;
+//   --nxc-color-white: white;
+//   --nxc-color-black: black;
 
-  @include make-color-palette('primary');
-  @include make-color-palette('success');
-  @include make-color-palette('info');
-  @include make-color-palette('warning');
-  @include make-color-palette('danger');
-  @include make-color-palette('gray');
+//   @include make-color-palette('primary');
+//   @include make-color-palette('success');
+//   @include make-color-palette('info');
+//   @include make-color-palette('warning');
+//   @include make-color-palette('danger');
+//   @include make-color-palette('gray');
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Border radius tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // Border radius tokens
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  --nxc-border-radius-small: 0.125rem; // 2px
-  --nxc-border-radius-medium: 0.25rem; // 4px
-  --nxc-border-radius-large: 0.5rem; // 8px
-  --nxc-border-radius-x-large: 1rem; // 16px
+//   --nxc-border-radius-small: 0.125rem; // 2px
+//   --nxc-border-radius-medium: 0.25rem; // 4px
+//   --nxc-border-radius-large: 0.5rem; // 8px
+//   --nxc-border-radius-x-large: 1rem; // 16px
 
-  --nxc-border-radius-circle: 50%;
-  --nxc-border-radius-pill: 9999px;
+//   --nxc-border-radius-circle: 50%;
+//   --nxc-border-radius-pill: 9999px;
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Elevation tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // Elevation tokens
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  --nxc-shadow-x-small: 0 1px 0 rgba(0, 0, 0, 0.05);
-  --nxc-shadow-small: 0 1px 2px rgba(0, 0, 0, 0.1);
-  --nxc-shadow-medium: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --nxc-shadow-large: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --nxc-shadow-x-large: 0 4px 16px rgba(0, 0, 0, 0.1);
+//   --nxc-shadow-x-small: 0 1px 0 rgba(0, 0, 0, 0.05);
+//   --nxc-shadow-small: 0 1px 2px rgba(0, 0, 0, 0.1);
+//   --nxc-shadow-medium: 0 2px 4px rgba(0, 0, 0, 0.1);
+//   --nxc-shadow-large: 0 2px 8px rgba(0, 0, 0, 0.1);
+//   --nxc-shadow-x-large: 0 4px 16px rgba(0, 0, 0, 0.1);
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Spacing tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // Spacing tokens
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  --nxc-spacing-xxx-small: 0.125rem; // 2px
-  --nxc-spacing-xx-small: 0.25rem; // 4px
-  --nxc-spacing-x-small: 0.5rem; // 8px
-  --nxc-spacing-small: 0.75rem; // 12px
-  --nxc-spacing-medium: 1rem; // 16px
-  --nxc-spacing-large: 1.25rem; // 20px
-  --nxc-spacing-x-large: 1.75rem; // 28px
-  --nxc-spacing-xx-large: 2.25rem; // 36px
-  --nxc-spacing-xxx-large: 3rem; // 48px
-  --nxc-spacing-xxxx-large: 4.5rem; // 72px
+//   --nxc-spacing-xxx-small: 0.125rem; // 2px
+//   --nxc-spacing-xx-small: 0.25rem; // 4px
+//   --nxc-spacing-x-small: 0.5rem; // 8px
+//   --nxc-spacing-small: 0.75rem; // 12px
+//   --nxc-spacing-medium: 1rem; // 16px
+//   --nxc-spacing-large: 1.25rem; // 20px
+//   --nxc-spacing-x-large: 1.75rem; // 28px
+//   --nxc-spacing-xx-large: 2.25rem; // 36px
+//   --nxc-spacing-xxx-large: 3rem; // 48px
+//   --nxc-spacing-xxxx-large: 4.5rem; // 72px
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Transition tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // Transition tokens
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  --nxc-transition-x-slow: 1000ms;
-  --nxc-transition-slow: 500ms;
-  --nxc-transition-medium: 250ms;
-  --nxc-transition-fast: 150ms;
-  --nxc-transition-x-fast: 50ms;
+//   --nxc-transition-x-slow: 1000ms;
+//   --nxc-transition-slow: 500ms;
+//   --nxc-transition-medium: 250ms;
+//   --nxc-transition-fast: 150ms;
+//   --nxc-transition-x-fast: 50ms;
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Typography tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // Typography tokens
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // Fonts
-  --nxc-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-  --nxc-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol';
-  --nxc-font-serif: Georgia, 'Times New Roman', serif;
+//   // Fonts
+//   --nxc-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+//   --nxc-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+//     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+//     'Segoe UI Symbol';
+//   --nxc-font-serif: Georgia, 'Times New Roman', serif;
 
-  // Font sizes
-  --nxc-font-size-xx-small: 0.625rem; // 10px
-  --nxc-font-size-x-small: 0.75rem; // 12px
-  --nxc-font-size-small: 0.875rem; // 14px
-  --nxc-font-size-medium: 1rem; // 16px
-  --nxc-font-size-large: 1.25rem; // 20px
-  --nxc-font-size-x-large: 1.5rem; // 24px
-  --nxc-font-size-xx-large: 2.25rem; // 36px
-  --nxc-font-size-xxx-large: 3rem; // 48px
-  --nxc-font-size-xxxx-large: 4.5rem; // 72px
+//   // Font sizes
+//   --nxc-font-size-xx-small: 0.625rem; // 10px
+//   --nxc-font-size-x-small: 0.75rem; // 12px
+//   --nxc-font-size-small: 0.875rem; // 14px
+//   --nxc-font-size-medium: 1rem; // 16px
+//   --nxc-font-size-large: 1.25rem; // 20px
+//   --nxc-font-size-x-large: 1.5rem; // 24px
+//   --nxc-font-size-xx-large: 2.25rem; // 36px
+//   --nxc-font-size-xxx-large: 3rem; // 48px
+//   --nxc-font-size-xxxx-large: 4.5rem; // 72px
 
-  // Font weights
-  --nxc-font-weight-light: 300;
-  --nxc-font-weight-normal: 400;
-  --nxc-font-weight-semibold: 500;
-  --nxc-font-weight-bold: 700;
+//   // Font weights
+//   --nxc-font-weight-light: 300;
+//   --nxc-font-weight-normal: 400;
+//   --nxc-font-weight-semibold: 500;
+//   --nxc-font-weight-bold: 700;
 
-  // Letter spacings
-  --nxc-letter-spacing-dense: -0.015em;
-  --nxc-letter-spacing-normal: normal;
-  --nxc-letter-spacing-loose: 0.075em;
+//   // Letter spacings
+//   --nxc-letter-spacing-dense: -0.015em;
+//   --nxc-letter-spacing-normal: normal;
+//   --nxc-letter-spacing-loose: 0.075em;
 
-  // Line heights
-  --nxc-line-height-dense: 1.4;
-  --nxc-line-height-normal: 1.8;
-  --nxc-line-height-loose: 2.2;
+//   // Line heights
+//   --nxc-line-height-dense: 1.4;
+//   --nxc-line-height-normal: 1.8;
+//   --nxc-line-height-loose: 2.2;
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Form tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // Form tokens
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // Focus ring
-  --nxc-focus-ring-hue: var(--nxc-color-primary-hue);
-  --nxc-focus-ring-saturation: var(--nxc-color-primary-saturation);
-  --nxc-focus-ring-lightness: 50%;
-  --nxc-focus-ring-alpha: 0.33;
-  --nxc-focus-ring-width: 3px;
-  --nxc-focus-ring-box-shadow: 0 0 0 var(--nxc-focus-ring-width)
-    hsla(
-      var(--nxc-focus-ring-hue),
-      var(--nxc-focus-ring-saturation),
-      var(--nxc-focus-ring-lightness),
-      var(--nxc-focus-ring-alpha)
-    );
-  --nxc-focus-ring-box-shadow-inset: inset 0 0 0 var(--nxc-focus-ring-width)
-    hsla(
-      var(--nxc-focus-ring-hue),
-      var(--nxc-focus-ring-saturation),
-      var(--nxc-focus-ring-lightness),
-      var(--nxc-focus-ring-alpha)
-    );
+//   // Focus ring
+//   --nxc-focus-ring-hue: var(--nxc-color-primary-hue);
+//   --nxc-focus-ring-saturation: var(--nxc-color-primary-saturation);
+//   --nxc-focus-ring-lightness: 50%;
+//   --nxc-focus-ring-alpha: 0.33;
+//   --nxc-focus-ring-width: 3px;
+//   --nxc-focus-ring-box-shadow: 0 0 0 var(--nxc-focus-ring-width)
+//     hsla(
+//       var(--nxc-focus-ring-hue),
+//       var(--nxc-focus-ring-saturation),
+//       var(--nxc-focus-ring-lightness),
+//       var(--nxc-focus-ring-alpha)
+//     );
+//   --nxc-focus-ring-box-shadow-inset: inset 0 0 0 var(--nxc-focus-ring-width)
+//     hsla(
+//       var(--nxc-focus-ring-hue),
+//       var(--nxc-focus-ring-saturation),
+//       var(--nxc-focus-ring-lightness),
+//       var(--nxc-focus-ring-alpha)
+//     );
 
-  // Buttons
-  --nxc-button-font-size-small: var(--nxc-font-size-x-small);
-  --nxc-button-font-size-medium: var(--nxc-font-size-small);
-  --nxc-button-font-size-large: var(--nxc-font-size-medium);
+//   // Buttons
+//   --nxc-button-font-size-small: var(--nxc-font-size-x-small);
+//   --nxc-button-font-size-medium: var(--nxc-font-size-small);
+//   --nxc-button-font-size-large: var(--nxc-font-size-medium);
 
-  // Inputs
-  --nxc-input-height-small: 30px;
-  --nxc-input-height-medium: 40px;
-  --nxc-input-height-large: 50px;
+//   // Inputs
+//   --nxc-input-height-small: 30px;
+//   --nxc-input-height-medium: 40px;
+//   --nxc-input-height-large: 50px;
 
-  --nxc-input-background-color: var(--nxc-color-white);
-  --nxc-input-background-color-hover: var(--nxc-color-white);
-  --nxc-input-background-color-focus: var(--nxc-color-white);
-  --nxc-input-background-color-disabled: var(--nxc-color-gray-95);
+//   --nxc-input-background-color: var(--nxc-color-white);
+//   --nxc-input-background-color-hover: var(--nxc-color-white);
+//   --nxc-input-background-color-focus: var(--nxc-color-white);
+//   --nxc-input-background-color-disabled: var(--nxc-color-gray-95);
 
-  --nxc-input-border-color: var(--nxc-color-gray-80);
-  --nxc-input-border-color-hover: var(--nxc-color-gray-70);
-  --nxc-input-border-color-focus: var(--nxc-color-primary-50);
-  --nxc-input-border-color-disabled: var(--nxc-color-gray-80);
-  --nxc-input-border-color-valid: var(--nxc-color-success-50);
-  --nxc-input-border-color-invalid: var(--nxc-color-danger-50);
-  --nxc-input-border-width: 1px;
+//   --nxc-input-border-color: var(--nxc-color-gray-80);
+//   --nxc-input-border-color-hover: var(--nxc-color-gray-70);
+//   --nxc-input-border-color-focus: var(--nxc-color-primary-50);
+//   --nxc-input-border-color-disabled: var(--nxc-color-gray-80);
+//   --nxc-input-border-color-valid: var(--nxc-color-success-50);
+//   --nxc-input-border-color-invalid: var(--nxc-color-danger-50);
+//   --nxc-input-border-width: 1px;
 
-  --nxc-input-border-radius-small: 4px;
-  --nxc-input-border-radius-medium: 4px;
-  --nxc-input-border-radius-large: 4px;
+//   --nxc-input-border-radius-small: 4px;
+//   --nxc-input-border-radius-medium: 4px;
+//   --nxc-input-border-radius-large: 4px;
 
-  --nxc-input-font-family: var(--nxc-font-sans);
-  --nxc-input-font-weight: var(--nxc-font-weight-normal);
-  --nxc-input-font-size-small: var(--nxc-font-size-small);
-  --nxc-input-font-size-medium: var(--nxc-font-size-medium);
-  --nxc-input-font-size-large: var(--nxc-font-size-large);
-  --nxc-input-letter-spacing: var(--nxc-letter-spacing-normal);
+//   --nxc-input-font-family: var(--nxc-font-sans);
+//   --nxc-input-font-weight: var(--nxc-font-weight-normal);
+//   --nxc-input-font-size-small: var(--nxc-font-size-small);
+//   --nxc-input-font-size-medium: var(--nxc-font-size-medium);
+//   --nxc-input-font-size-large: var(--nxc-font-size-large);
+//   --nxc-input-letter-spacing: var(--nxc-letter-spacing-normal);
 
-  --nxc-input-color: var(--nxc-color-gray-30);
-  --nxc-input-color-hover: var(--nxc-color-gray-30);
-  --nxc-input-color-focus: var(--nxc-color-gray-30);
-  --nxc-input-color-disabled: var(--nxc-color-gray-10);
-  --nxc-input-color-valid: var(--nxc-color-success-40);
-  --nxc-input-color-invalid: var(--nxc-color-danger-40);
+//   --nxc-input-color: var(--nxc-color-gray-30);
+//   --nxc-input-color-hover: var(--nxc-color-gray-30);
+//   --nxc-input-color-focus: var(--nxc-color-gray-30);
+//   --nxc-input-color-disabled: var(--nxc-color-gray-10);
+//   --nxc-input-color-valid: var(--nxc-color-success-40);
+//   --nxc-input-color-invalid: var(--nxc-color-danger-40);
 
-  --nxc-input-icon-color: var(--nxc-color-gray-60);
-  --nxc-input-icon-color-hover: var(--nxc-color-gray-40);
-  --nxc-input-icon-color-focus: var(--nxc-color-gray-40);
+//   --nxc-input-icon-color: var(--nxc-color-gray-60);
+//   --nxc-input-icon-color-hover: var(--nxc-color-gray-40);
+//   --nxc-input-icon-color-focus: var(--nxc-color-gray-40);
 
-  --nxc-input-placeholder-color: var(--nxc-color-gray-60);
-  --nxc-input-placeholder-color-disabled: var(--nxc-color-gray-40);
+//   --nxc-input-placeholder-color: var(--nxc-color-gray-60);
+//   --nxc-input-placeholder-color-disabled: var(--nxc-color-gray-40);
 
-  --nxc-input-spacing-small: 10px;
-  --nxc-input-spacing-medium: 12px;
-  --nxc-input-spacing-large: 14px;
+//   --nxc-input-spacing-small: 10px;
+//   --nxc-input-spacing-medium: 12px;
+//   --nxc-input-spacing-large: 14px;
 
-  // Labels
-  --nxc-input-label-font-size-small: var(--nxc-font-size-small);
-  --nxc-input-label-font-size-medium: var(--nxc-font-size-medium);
-  --nxc-input-label-font-size-large: var(--nxc-font-size-large);
+//   // Labels
+//   --nxc-input-label-font-size-small: var(--nxc-font-size-small);
+//   --nxc-input-label-font-size-medium: var(--nxc-font-size-medium);
+//   --nxc-input-label-font-size-large: var(--nxc-font-size-large);
 
-  --nxc-input-label-color: inherit;
-  --nxc-input-label-color-valid: inherit;
-  --nxc-input-label-color-invalid: inherit;
+//   --nxc-input-label-color: inherit;
+//   --nxc-input-label-color-valid: inherit;
+//   --nxc-input-label-color-invalid: inherit;
 
-  // Help text
-  --nxc-input-help-text-font-size-small: var(--nxc-font-size-x-small);
-  --nxc-input-help-text-font-size-medium: var(--nxc-font-size-small);
-  --nxc-input-help-text-font-size-large: var(--nxc-font-size-medium);
+//   // Help text
+//   --nxc-input-help-text-font-size-small: var(--nxc-font-size-x-small);
+//   --nxc-input-help-text-font-size-medium: var(--nxc-font-size-small);
+//   --nxc-input-help-text-font-size-large: var(--nxc-font-size-medium);
 
-  --nxc-input-help-text-color: var(--nxc-color-gray-60);
-  --nxc-input-help-text-color-valid: var(--nxc-color-success-40);
-  --nxc-input-help-text-color-invalid: var(--nxc-color-danger-40);
+//   --nxc-input-help-text-color: var(--nxc-color-gray-60);
+//   --nxc-input-help-text-color-valid: var(--nxc-color-success-40);
+//   --nxc-input-help-text-color-invalid: var(--nxc-color-danger-40);
 
-  // Toggles (checkboxes, radios, switches)
-  --nxc-toggle-size: 16px;
+//   // Toggles (checkboxes, radios, switches)
+//   --nxc-toggle-size: 16px;
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Overlay tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // Overlay tokens
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  --nxc-overlay-background-color: hsla(
-    var(--nxc-color-gray-hue),
-    var(--nxc-color-gray-saturation),
-    20%,
-    0.5
-  );
+//   --nxc-overlay-background-color: hsla(
+//     var(--nxc-color-gray-hue),
+//     var(--nxc-color-gray-saturation),
+//     20%,
+//     0.5
+//   );
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Tooltip tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // Tooltip tokens
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  --nxc-tooltip-border-radius: var(--nxc-border-radius-medium);
-  --nxc-tooltip-background-color: var(--nxc-color-gray-10);
-  --nxc-tooltip-color: var(--nxc-color-white);
-  --nxc-tooltip-font-family: var(--nxc-font-sans);
-  --nxc-tooltip-font-weight: var(--nxc-font-weight-normal);
-  --nxc-tooltip-font-size: var(--nxc-font-size-small);
-  --nxc-tooltip-line-height: var(--nxc-line-height-normal);
-  --nxc-tooltip-padding: var(--nxc-spacing-xxx-small) var(--nxc-spacing-x-small);
-  --nxc-tooltip-arrow-size: 5px;
-  --nxc-tooltip-arrow-start-end-offset: 8px;
+//   --nxc-tooltip-border-radius: var(--nxc-border-radius-medium);
+//   --nxc-tooltip-background-color: var(--nxc-color-gray-10);
+//   --nxc-tooltip-color: var(--nxc-color-white);
+//   --nxc-tooltip-font-family: var(--nxc-font-sans);
+//   --nxc-tooltip-font-weight: var(--nxc-font-weight-normal);
+//   --nxc-tooltip-font-size: var(--nxc-font-size-small);
+//   --nxc-tooltip-line-height: var(--nxc-line-height-normal);
+//   --nxc-tooltip-padding: var(--nxc-spacing-xxx-small) var(--nxc-spacing-x-small);
+//   --nxc-tooltip-arrow-size: 5px;
+//   --nxc-tooltip-arrow-start-end-offset: 8px;
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Z-index tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // Z-index tokens
+//   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  --nxc-z-index-drawer: 700;
-  --nxc-z-index-dialog: 800;
-  --nxc-z-index-dropdown: 900;
-  --nxc-z-index-tooltip: 1000;
-}
+//   --nxc-z-index-drawer: 700;
+//   --nxc-z-index-dialog: 800;
+//   --nxc-z-index-dropdown: 900;
+//   --nxc-z-index-tooltip: 1000;
+// }

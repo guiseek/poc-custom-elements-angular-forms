@@ -8,73 +8,34 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { InputType } from "@nxc/ui/form/core";
 export namespace Components {
     interface NxcInput {
-        /**
-          * The input's autofocus attribute.
-         */
         "autofocus": boolean;
         "clearable": boolean;
-        /**
-          * Set to true to disable the input.
-         */
         "disabled": boolean;
-        /**
-          * Set to true to indicate that the user input is invalid.
-         */
         "invalid": boolean;
         "label": string;
-        /**
-          * The input's max attribute.
-         */
         "max": number;
-        /**
-          * The input's maxlength attribute.
-         */
         "maxlength": number;
-        /**
-          * The input's min attribute.
-         */
         "min": number;
-        /**
-          * The input's minlength attribute.
-         */
         "minlength": number;
         "name": string;
-        /**
-          * The input's pattern attribute.
-         */
         "pattern": string;
-        /**
-          * Set to true to draw a pill-style input with rounded edges.
-         */
         "pill": boolean;
-        /**
-          * The input's placeholder text.
-         */
         "placeholder": string;
-        /**
-          * Set to true for a readonly input.
-         */
         "readonly": boolean;
         /**
-          * Removes focus from the input.
+          * Remove o foco do elemento.
          */
         "removeFocus": () => Promise<void>;
-        /**
-          * The input's required attribute.
-         */
         "required": boolean;
         /**
-          * Selects all the text in the input.
+          * Seleciona todo texto do input.
          */
         "select": () => Promise<void>;
         /**
-          * Sets focus on the input.
+          * Coloca foco no elemento.
          */
         "setFocus": () => Promise<void>;
         "size": string;
-        /**
-          * The input's step attribute.
-         */
         "step": number;
         "togglePassword": boolean;
         "type": InputType;
@@ -95,64 +56,25 @@ declare global {
 }
 declare namespace LocalJSX {
     interface NxcInput {
-        /**
-          * The input's autofocus attribute.
-         */
         "autofocus"?: boolean;
         "clearable"?: boolean;
-        /**
-          * Set to true to disable the input.
-         */
         "disabled"?: boolean;
-        /**
-          * Set to true to indicate that the user input is invalid.
-         */
         "invalid"?: boolean;
         "label"?: string;
-        /**
-          * The input's max attribute.
-         */
         "max"?: number;
-        /**
-          * The input's maxlength attribute.
-         */
         "maxlength"?: number;
-        /**
-          * The input's min attribute.
-         */
         "min"?: number;
-        /**
-          * The input's minlength attribute.
-         */
         "minlength"?: number;
         "name"?: string;
         "onBlurChange"?: (event: CustomEvent<any>) => void;
         "onFocusChange"?: (event: CustomEvent<any>) => void;
         "onValueChange"?: (event: CustomEvent<any>) => void;
-        /**
-          * The input's pattern attribute.
-         */
         "pattern"?: string;
-        /**
-          * Set to true to draw a pill-style input with rounded edges.
-         */
         "pill"?: boolean;
-        /**
-          * The input's placeholder text.
-         */
         "placeholder"?: string;
-        /**
-          * Set to true for a readonly input.
-         */
         "readonly"?: boolean;
-        /**
-          * The input's required attribute.
-         */
         "required"?: boolean;
         "size"?: string;
-        /**
-          * The input's step attribute.
-         */
         "step"?: number;
         "togglePassword"?: boolean;
         "type"?: InputType;

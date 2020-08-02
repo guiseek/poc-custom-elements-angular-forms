@@ -87,31 +87,34 @@ export class NxcInput implements FormInput {
     this.handlePasswordToggle = this.handlePasswordToggle.bind(this);
   }
 
-  /** Sets focus on the input. */
+  /** Coloca foco no elemento. */
   @Method()
   async setFocus() {
     this.input.focus();
   }
 
-  /** Removes focus from the input. */
+  /** Remove o foco do elemento. */
   @Method()
   async removeFocus() {
     this.input.blur();
   }
 
-  /** Selects all the text in the input. */
+  /** Seleciona todo texto do input. */
   @Method()
   async select() {
     return this.input.select();
   }
 
   handleChange() {
-    this.valueChange.emit();
+    if (this.value) {
+      this.valueChange.emit(this.value);
+    }
   }
 
   handleInput() {
     this.value = this.input.value;
-    this.focusChange.emit({ detail: this.value });
+    this.valueChange.emit(this.value);
+    // this.focusChange.emit({ detail: this.value });
   }
 
   handleBlur() {
@@ -237,7 +240,7 @@ export class NxcInput implements FormInput {
               tabindex="-1"
             >
               <slot name="clear-icon">
-                <sl-icon name="x-circle" />
+                <nxc-icon name="x-circle" />
               </slot>
             </button>
           )}
@@ -252,12 +255,12 @@ export class NxcInput implements FormInput {
             >
               {this.isPasswordVisible ? (
                 <slot name="show-password-icon">
-                  <sl-icon name="eye-slash" />
+                  <nxc-icon name="eye-slash" />
                 </slot>
               ) : (
                 <slot name="hide-password-icon">
                   {' '}
-                  <sl-icon name="eye" />
+                  <nxc-icon name="eye" />
                 </slot>
               )}
             </button>

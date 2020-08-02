@@ -8,17 +8,25 @@
 </header>
 
 <form [formGroup]="form">
-  <div>
-    <label for="name">Name</label>
-
-    <!-- <input type="text" formControlName="name" nxc-input="name" name="name"> -->
-  </div>
+  <nxc-input
+    nxcInput
+    label="Email"
+    name="email"
+    formControlName="email"
+    (valueChange)="valueChange($event)"
+  ></nxc-input>
 
   <nxc-input
-    [nxcCustomOutputHoist]
-    (blurChange)="change($event)"
-    (focusChange)="change($event)"
-    (valueChange)="change($event)"
+    nxcInput
+    #nxcInput
+    label="Senha"
+    type="password"
+    name="password"
+    togglePassword="true"
+    formControlName="password"
+    (focusChange)="focusChange($event)"
+    (valueChange)="valueChange($event)"
+    (blurChange)="blurChange($event)"
   ></nxc-input>
   <!-- <nxc-input #nxcInput first="Gui" last="Seek"></nxc-input>nx -->
 </form>

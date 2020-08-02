@@ -23,6 +23,9 @@
             "aot": true,
             "assets": ["apps/demo/src/favicon.ico", "apps/demo/src/assets"],
             "styles": ["apps/demo/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui/styles"]
+            },
             "scripts": []
           },
           "configurations": {

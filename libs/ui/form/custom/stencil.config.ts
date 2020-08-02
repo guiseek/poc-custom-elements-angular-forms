@@ -5,6 +5,7 @@ export const config: Config = {
   namespace: 'nxc-form-custom',
   buildEs5: false,
   taskQueue: 'async',
+  globalStyle: './../../styles/global.scss',
   outputTargets: [
     {
       type: 'dist',

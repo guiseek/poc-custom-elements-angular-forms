@@ -24,7 +24,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "custom:form": "nx run ui-form-custom:serve",
+    "serve:form:custom": "nx run ui-form-custom:serve",
+    "build:form:custom": "nx run ui-form-custom:build",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "private": true,

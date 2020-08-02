@@ -1,5 +1,5 @@
-import { defineCustomElements } from '@nxc/ui/form/custom/loader';
 import { enableProdMode } from '@angular/core';
+import { defineCustomElements } from '@nxc/ui/form/custom/loader';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
@@ -12,8 +12,5 @@ if (environment.production) {
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .then(() => {
-    // customElements.define('nxc-input', NxcInput);
-    defineCustomElements()
-  })
+  .then(() => defineCustomElements())
   .catch((err) => console.error(err));

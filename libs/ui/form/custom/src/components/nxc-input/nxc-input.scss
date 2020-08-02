@@ -1,7 +1,5 @@
-@import '../../styles/nxc.scss';
-@import '../../styles/component.scss';
-@import '../../styles/form-control-label';
-@import '../../styles/form-control-help-text';
+@use '../../../../../styles/partials/host-box';
+@use '../../../../../styles/partials/forms';
 
 :host {
   display: block;
