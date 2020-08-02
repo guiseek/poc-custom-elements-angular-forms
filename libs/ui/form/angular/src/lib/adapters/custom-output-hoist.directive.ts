@@ -18,7 +18,6 @@ import {
 
 const inputTriggers = ['valueChange', 'focusChange', 'blurChange'];
 
-
 /**
  * @deprecated
  * Evento já capturado em ./input-hoist.directive.ts

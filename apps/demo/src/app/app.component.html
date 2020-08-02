@@ -9,7 +9,6 @@
 
 <form [formGroup]="form">
   <nxc-input
-    nxcInput
     label="Email"
     name="email"
     formControlName="email"
@@ -17,18 +16,15 @@
   ></nxc-input>
 
   <nxc-input
-    nxcInput
     #nxcInput
     label="Senha"
     type="password"
     name="password"
-    togglePassword="true"
     formControlName="password"
     (focusChange)="focusChange($event)"
     (valueChange)="valueChange($event)"
     (blurChange)="blurChange($event)"
   ></nxc-input>
-  <!-- <nxc-input #nxcInput first="Gui" last="Seek"></nxc-input>nx -->
 </form>
 
 <pre>{{ form.value | json }}</pre>

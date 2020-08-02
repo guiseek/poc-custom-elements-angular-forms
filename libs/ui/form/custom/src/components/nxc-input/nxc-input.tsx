@@ -1,13 +1,13 @@
 import { FormInput, EventEmitter, InputType } from '@nxc/ui/form/core';
 
 import {
-  Component,
   h,
   Prop,
   Event,
   Method,
   State,
   Element,
+  Component,
 } from '@stencil/core';
 
 let id = 0;

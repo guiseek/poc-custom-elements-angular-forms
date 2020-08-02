@@ -19,7 +19,8 @@
   border: solid var(--nxc-input-border-width) var(--nxc-input-border-color);
   vertical-align: middle;
   overflow: hidden;
-  transition: var(--nxc-transition-fast) color, var(--nxc-transition-fast) border, var(--nxc-transition-fast) box-shadow;
+  transition: var(--nxc-transition-fast) color,
+    var(--nxc-transition-fast) border, var(--nxc-transition-fast) box-shadow;
   cursor: text;
 
   &:hover:not(.input--disabled) {
@@ -56,7 +57,12 @@
 
     &.input--focused {
       box-shadow: 0 0 0 var(--nxc-focus-ring-width)
-        hsla(var(--nxc-color-success-hue), var(--nxc-color-success-saturation), 50%, var(--nxc-focus-ring-alpha));
+        hsla(
+          var(--nxc-color-success-hue),
+          var(--nxc-color-success-saturation),
+          50%,
+          var(--nxc-focus-ring-alpha)
+        );
       border-color: var(--nxc-input-border-color-valid);
     }
   }
@@ -66,7 +72,12 @@
 
     &.input--focused {
       box-shadow: 0 0 0 var(--nxc-focus-ring-width)
-        hsla(var(--nxc-color-danger-hue), var(--nxc-color-danger-saturation), 50%, var(--nxc-focus-ring-alpha));
+        hsla(
+          var(--nxc-color-danger-hue),
+          var(--nxc-color-danger-saturation),
+          50%,
+          var(--nxc-focus-ring-alpha)
+        );
     }
   }
 }
@@ -122,7 +133,9 @@
   height: var(--nxc-input-height-small);
 
   .input__control {
-    height: calc(var(--nxc-input-height-small) - var(--nxc-input-border-width) * 2);
+    height: calc(
+      var(--nxc-input-height-small) - var(--nxc-input-border-width) * 2
+    );
     margin: 0 var(--nxc-input-spacing-small);
   }
 
@@ -146,7 +159,9 @@
   height: var(--nxc-input-height-medium);
 
   .input__control {
-    height: calc(var(--nxc-input-height-medium) - var(--nxc-input-border-width) * 2);
+    height: calc(
+      var(--nxc-input-height-medium) - var(--nxc-input-border-width) * 2
+    );
     margin: 0 var(--nxc-input-spacing-medium);
   }
 
@@ -170,7 +185,9 @@
   height: var(--nxc-input-height-large);
 
   .input__control {
-    height: calc(var(--nxc-input-height-large) - var(--nxc-input-border-width) * 2);
+    height: calc(
+      var(--nxc-input-height-large) - var(--nxc-input-border-width) * 2
+    );
     margin: 0 var(--nxc-input-spacing-large);
   }
 

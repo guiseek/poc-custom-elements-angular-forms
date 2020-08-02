@@ -1,16 +1,18 @@
+import { takeUntil } from 'rxjs/operators';
 import { FormInput } from '@nxc/ui/form/core';
 import { Components } from '@nxc/ui/form/custom';
 import {
-  Directive,
+  Host,
   Input,
   Optional,
-  Host,
   SkipSelf,
   AfterContentInit,
   HostBinding,
   forwardRef,
   ElementRef,
   HostListener,
+  Component,
+  OnDestroy,
 } from '@angular/core';
 import {
   ControlContainer,
@@ -18,9 +20,13 @@ import {
   AbstractControl,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
+import { Subject } from 'rxjs';
 
-@Directive({
-  selector: '[nxcInput], [nxcInputHoist]',
+type InputStatus = 'VALID' | 'INVALID' | 'PENDING' | 'DISABLED';
+
+@Component({
+  selector: 'nxc-input, [nxcInput], [nxcInputHoist]',
+  template: '',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -29,15 +35,43 @@ import {
     },
   ],
 })
-export class InputHoistDirective implements ControlValueAccessor,
-  Partial<FormInput>, AfterContentInit {
+export class InputHoistDirective
+  implements
+    ControlValueAccessor,
+    Partial<FormInput>,
+    AfterContentInit,
+    OnDestroy {
+  destroy$ = new Subject<void>();
 
   element: Components.NxcInput;
 
   @Input() formControlName: string;
   @Input() formControl: AbstractControl;
 
-  @HostBinding() disabled: boolean;
+  private _status: InputStatus;
+  public get status() {
+    return this._status;
+  }
+  public set status(value) {
+    this._status = value;
+  }
+
+  @HostBinding('attr.invalid') get invalid() {
+    return this.status === 'INVALID';
+  }
+
+  @HostBinding('attr.valid') get valid() {
+    return this.status === 'VALID';
+  }
+
+  @HostBinding('disabled')
+  private _disabled: boolean;
+  public get disabled(): boolean {
+    return this._disabled || this.status === 'DISABLED';
+  }
+  public set disabled(value: boolean) {
+    this._disabled = value;
+  }
 
   @HostBinding('value')
   private _value: any;
@@ -61,7 +95,9 @@ export class InputHoistDirective implements ControlValueAccessor,
   onTouched: any = () => {};
 
   constructor(
-    @Optional() @Host() @SkipSelf()
+    @Optional()
+    @Host()
+    @SkipSelf()
     private controlContainer: ControlContainer,
     private elementRef: ElementRef<Components.NxcInput>
   ) {}
@@ -88,6 +124,10 @@ export class InputHoistDirective implements ControlValueAccessor,
 
     if (this.formControlName) {
       this.formControl = this.getControl(this.controlContainer);
+
+      this.formControl.statusChanges
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((v) => (this.status = v));
     }
   }
   getCustom({ nativeElement }: ElementRef) {
@@ -105,5 +145,9 @@ export class InputHoistDirective implements ControlValueAccessor,
       );
     }
     return control.get(this.formControlName);
+  }
+
+  ngOnDestroy() {
+    this.destroy$.complete();
   }
 }

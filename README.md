@@ -1,61 +1,154 @@
 # Nxc
 
-This project was generated using [Nx](https://nx.dev).
+## Prova de conceito
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+A ideia é usar componentes em diversas plataformas com o mínimo de impacto, tendo apenas uma fonte de verdade para design e comportamento.
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+## Conceitos
 
-## Adding capabilities to your workspace
+- Web components
+- Custom elements
+- Custom events
+- Mono repositório
+- Clean Architecture
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## Frameworks & Tools
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+- TypeScript
+- Angular
+- StencilJS
+- Nx tools
 
-Below are our core plugins:
+---
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+## Estrutura
+
+### Diretórios
+
+```
+├── ui
+│   ├── core
+│   ├── form
+│   │   ├── angular
+│   │   ├── core
+│   │   └── custom
+│   └── styles
+│       ├── core
+│       ├── global.scss
+│       ├── mixins
+│       ├── partials
+│       └── tokens
+```
+
+<table>
+<tr><td>
+
+![Gráfico de dependências](libs/assets/ui-dep-graph.svg)
+
+</td><td style="vertical-align: top">
+
+<div style="height: 40px">
+<span style="font-size: 42.6px"> ☜ </span>
+<span style="font-size: 32.6px"> Demo </span>
+</div>
+<div style="height: 160px">
+
+Tipo de projeto: `application`
+Framework: `angular`
+
+Serve:
+`nx run serve`
+
+Build:
+`nx run demo:build --prod`
+
+</div>
+<div style="height: 40px">
+<span style="font-size: 42.6px"> ☜ </span>
+<span style="font-size: 32.6px"> UI Form Angular </span>
+</div>
+<div style="height: 160px">
+
+Tipo de projeto: `library`
+Framework: `angular`
+
+</div>
+<div style="height: 40px">
+<span style="font-size: 42.6px"> ☜ </span>
+<span style="font-size: 32.6px"> UI Form Custom </span>
+</div>
+<div style="height: 160px">
+
+Tipo de projeto: `library`
+Framework: `stenciljs`
+
+Serve:
+`nx run ui-form-custom:serve`
+
+Build:
+`nx run ui-form-custom:build`
+
+</div>
+<div style="height: 40px">
+<span style="font-size: 42.6px"> ☜ </span>
+<span style="font-size: 32.6px"> UI Form Core </span>
+</div>
+<div style="height: 160px">
+
+Tipo de projeto: `library`
+Framework: `nx workspace`
+
+</div>
+<div style="height: 40px">
+<span style="font-size: 42.6px"> ☜ </span>
+<span style="font-size: 32.6px"> UI Core </span>
+</div>
+<div>
+
+Tipo de projeto: `library`
+Framework: `nx workspace`
+
+</div>
+</td></tr>
+</table>
+
+---
+
+```elixir
+> NX:  Installed plugins:
+
+  @nrwl/jest (builders,schematics)
+  @nrwl/angular (builders,schematics)
+  @nrwl/cypress (builders,schematics)
+  @nrwl/workspace (builders,schematics)
+  @nxext/stencil (builders,schematics)
+```
+
+```elixir
+> NX:  Also available:
+
+  @nrwl/bazel (schematics)
+  @nrwl/express (builders,schematics)
+  @nrwl/linter (builders)
+  @nrwl/nest (builders,schematics)
+  @nrwl/next (builders,schematics)
+  @nrwl/node (builders,schematics)
+  @nrwl/nx-plugin (builders,schematics)
+  @nrwl/react (builders,schematics)
+  @nrwl/storybook (builders,schematics)
+  @nrwl/web (builders,schematics)
+```
 
 There are also many [community plugins](https://nx.dev/nx-community) you could add.
 
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@nxc/mylib`.
-
-## Development server
+## Development
 
 Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
 ## Build
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. Custom elements
+   Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 

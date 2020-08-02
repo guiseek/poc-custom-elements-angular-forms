@@ -19,7 +19,7 @@ import { takeUntil } from 'rxjs/operators';
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   title = 'demo';
 
-  destroy$ = new Subject<void>();
+  private destroy$ = new Subject<void>();
 
   @ViewChild('nxcInput') custom: ElementRef<Components.NxcInput>;
 
@@ -47,9 +47,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   ngAfterViewInit() {
     window.setTimeout(() => {
-      this.form.get('password').setValue('hahah');
       console.log(this.custom.nativeElement);
-    }, 2000);
+    });
   }
 
   ngOnDestroy() {

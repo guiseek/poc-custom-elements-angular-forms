@@ -2,7 +2,11 @@
 @mixin make-colors($name) {
   @for $i from 5 through 95 {
     @if $i % 5 == 0 {
-      --nxc-color-#{$name}-#{$i}: hsl(var(--nxc-color-#{$name}-hue), var(--nxc-color-#{$name}-saturation), #{$i * 1%});
+      --nxc-color-#{$name}-#{$i}: hsl(
+        var(--nxc-color-#{$name}-hue),
+        var(--nxc-color-#{$name}-saturation),
+        #{$i * 1%}
+      );
     }
   }
 }
