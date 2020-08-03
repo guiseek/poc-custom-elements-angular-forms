@@ -1,46 +1,56 @@
-<header class="flex">
-  <img
-    alt="Nx logo"
-    width="75"
-    src="https://nx.dev/assets/images/nx-logo-white.svg"
-  />
-  <h1>Welcome to {{ title }}!</h1>
-</header>
-
 <main role="main">
+  <section>
+    <nxc-alert type="primary" open>
+      <nxc-icon slot="icon" name="info-circle"></nxc-icon>
+      <strong>Welcome to {{ title }}!</strong><br />
+      Welcome to {{ title }}!
+    </nxc-alert>
+  </section>
 
-  <nxc-alert type="primary" open>
-    <nxc-icon slot="icon" name="info-circle"></nxc-icon>
-    <strong>This is super informative</strong><br>
-    You can tell by how pretty the alert is.
-  </nxc-alert>
+  <section>
+    <form [formGroup]="form">
+      <nxc-input
+        label="Email"
+        name="email"
+        formControlName="email"
+        (focusChange)="focusChange($event)"
+        (blurChange)="blurChange($event)"
+        (valueChange)="valueChange($event)"
+      ></nxc-input>
 
-  <form [formGroup]="form">
-    <nxc-input
-      label="Email"
-      name="email"
-      formControlName="email"
-      (focusChange)="focusChange($event)"
-      (blurChange)="blurChange($event)"
-      (valueChange)="valueChange($event)"
-    ></nxc-input>
+      <nxc-input
+        #nxcInput
+        label="Senha"
+        type="password"
+        name="password"
+        formControlName="password"
+        (valueChange)="valueChange($event)"
+      >
+      </nxc-input>
+    </form>
 
-    <nxc-input
-      #nxcInput
-      label="Senha"
-      type="password"
-      name="password"
-      formControlName="password"
-      (valueChange)="valueChange($event)"
-    >
-    </nxc-input>
+    <pre>{{ form.value | json }}</pre>
+  </section>
 
+  <section>
+    <nxc-menu>
+      <nxc-menu-item value="undo">Undo</nxc-menu-item>
+      <nxc-menu-item value="redo">Redo</nxc-menu-item>
+      <nxc-menu-divider></nxc-menu-divider>
+      <nxc-menu-item value="cut">Cut</nxc-menu-item>
+      <nxc-menu-item value="copy">Copy</nxc-menu-item>
+      <nxc-menu-item value="paste">Paste</nxc-menu-item>
+      <nxc-menu-item value="delete">Delete</nxc-menu-item>
+    </nxc-menu>
+  </section>
 
-  </form>
-
-  <pre>{{ form.value | json }}</pre>
-
+  <section>
+    <nxc-alert *ngFor="let alert of alerts" [type]="alert.type" open>
+      <nxc-icon slot="icon" name="info-circle"></nxc-icon>
+      <strong>{{ alert.title }}</strong
+      ><br />
+      {{ alert.text }}
+    </nxc-alert>
+  </section>
   <router-outlet></router-outlet>
-
 </main>
-

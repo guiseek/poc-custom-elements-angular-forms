@@ -11,6 +11,11 @@ import { Components } from '@nxc/ui/custom';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+type Alert = Pick<Components.NxcAlert, 'type'> & {
+  title: string;
+  text: string;
+};
+
 @Component({
   selector: 'demo-root',
   templateUrl: './app.component.html',
@@ -18,6 +23,14 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   title = 'demo';
+
+  alerts: Array<Alert> = [
+    { type: 'info', title: 'Alert info', text: 'Alert info' },
+    { type: 'danger', title: 'Alert danger', text: 'Alert danger' },
+    { type: 'primary', title: 'Alert primary', text: 'Alert primary' },
+    { type: 'success', title: 'Alert success', text: 'Alert success' },
+    { type: 'warning', title: 'Alert warning', text: 'Alert warning' },
+  ];
 
   private destroy$ = new Subject<void>();
 
@@ -48,7 +61,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onClick() {
     console.log('clicked');
-
   }
   ngAfterViewInit() {
     window.setTimeout(() => {

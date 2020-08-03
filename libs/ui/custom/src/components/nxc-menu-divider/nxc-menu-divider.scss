@@ -1,0 +1,10 @@
+@use '../../../../styles/partials/host-box';
+
+:host {
+  display: block;
+}
+
+.menu-divider {
+  border-top: solid 1px var(--nxc-color-gray-90);
+  margin: var(--nxc-spacing-x-small) 0;
+}

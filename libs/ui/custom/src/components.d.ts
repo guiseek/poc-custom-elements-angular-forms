@@ -89,6 +89,30 @@ export namespace Components {
         "valid": boolean;
         "value": string;
     }
+    interface NxcMenu {
+        /**
+          * Removes focus from the menu.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus on the menu.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Initiates type-to-select logic, which automatically selects an option based on what the user is currently typing. The key passed will be appended to the internal query and the selection will be updated. After a brief period, the internal query is cleared automatically. This method is intended to be used with the keydown event. Useful for enabling type-to-select when the menu doesn't have focus.
+         */
+        "typeToSelect": (key: string) => Promise<void>;
+    }
+    interface NxcMenuDivider {
+    }
+    interface NxcMenuItem {
+        "active": boolean;
+        "checked": boolean;
+        "disabled": boolean;
+        "value": string;
+    }
+    interface NxcMenuLabel {
+    }
 }
 declare global {
     interface HTMLNxcAlertElement extends Components.NxcAlert, HTMLStencilElement {
@@ -121,12 +145,40 @@ declare global {
         prototype: HTMLNxcInputElement;
         new (): HTMLNxcInputElement;
     };
+    interface HTMLNxcMenuElement extends Components.NxcMenu, HTMLStencilElement {
+    }
+    var HTMLNxcMenuElement: {
+        prototype: HTMLNxcMenuElement;
+        new (): HTMLNxcMenuElement;
+    };
+    interface HTMLNxcMenuDividerElement extends Components.NxcMenuDivider, HTMLStencilElement {
+    }
+    var HTMLNxcMenuDividerElement: {
+        prototype: HTMLNxcMenuDividerElement;
+        new (): HTMLNxcMenuDividerElement;
+    };
+    interface HTMLNxcMenuItemElement extends Components.NxcMenuItem, HTMLStencilElement {
+    }
+    var HTMLNxcMenuItemElement: {
+        prototype: HTMLNxcMenuItemElement;
+        new (): HTMLNxcMenuItemElement;
+    };
+    interface HTMLNxcMenuLabelElement extends Components.NxcMenuLabel, HTMLStencilElement {
+    }
+    var HTMLNxcMenuLabelElement: {
+        prototype: HTMLNxcMenuLabelElement;
+        new (): HTMLNxcMenuLabelElement;
+    };
     interface HTMLElementTagNameMap {
         "nxc-alert": HTMLNxcAlertElement;
         "nxc-button": HTMLNxcButtonElement;
         "nxc-icon": HTMLNxcIconElement;
         "nxc-icon-button": HTMLNxcIconButtonElement;
         "nxc-input": HTMLNxcInputElement;
+        "nxc-menu": HTMLNxcMenuElement;
+        "nxc-menu-divider": HTMLNxcMenuDividerElement;
+        "nxc-menu-item": HTMLNxcMenuItemElement;
+        "nxc-menu-label": HTMLNxcMenuLabelElement;
     }
 }
 declare namespace LocalJSX {
@@ -204,12 +256,40 @@ declare namespace LocalJSX {
         "valid"?: boolean;
         "value"?: string;
     }
+    interface NxcMenu {
+        /**
+          * Emitted when the menu loses focus.
+         */
+        "onNxcBlur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the menu gains focus.
+         */
+        "onNxcFocus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when a menu item is selected.
+         */
+        "onNxcSelect"?: (event: CustomEvent<any>) => void;
+    }
+    interface NxcMenuDivider {
+    }
+    interface NxcMenuItem {
+        "active"?: boolean;
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "value"?: string;
+    }
+    interface NxcMenuLabel {
+    }
     interface IntrinsicElements {
         "nxc-alert": NxcAlert;
         "nxc-button": NxcButton;
         "nxc-icon": NxcIcon;
         "nxc-icon-button": NxcIconButton;
         "nxc-input": NxcInput;
+        "nxc-menu": NxcMenu;
+        "nxc-menu-divider": NxcMenuDivider;
+        "nxc-menu-item": NxcMenuItem;
+        "nxc-menu-label": NxcMenuLabel;
     }
 }
 export { LocalJSX as JSX };
@@ -221,6 +301,10 @@ declare module "@stencil/core" {
             "nxc-icon": LocalJSX.NxcIcon & JSXBase.HTMLAttributes<HTMLNxcIconElement>;
             "nxc-icon-button": LocalJSX.NxcIconButton & JSXBase.HTMLAttributes<HTMLNxcIconButtonElement>;
             "nxc-input": LocalJSX.NxcInput & JSXBase.HTMLAttributes<HTMLNxcInputElement>;
+            "nxc-menu": LocalJSX.NxcMenu & JSXBase.HTMLAttributes<HTMLNxcMenuElement>;
+            "nxc-menu-divider": LocalJSX.NxcMenuDivider & JSXBase.HTMLAttributes<HTMLNxcMenuDividerElement>;
+            "nxc-menu-item": LocalJSX.NxcMenuItem & JSXBase.HTMLAttributes<HTMLNxcMenuItemElement>;
+            "nxc-menu-label": LocalJSX.NxcMenuLabel & JSXBase.HTMLAttributes<HTMLNxcMenuLabelElement>;
         }
     }
 }

@@ -36,7 +36,7 @@
   }
 
   // Clicks on icons shouldn't prevent the button from gaining focus
-  ::slotted(sl-icon) {
+  ::slotted(nxc-icon) {
     pointer-events: none;
   }
 }
@@ -369,7 +369,7 @@
     visibility: hidden;
   }
 
-  sl-spinner {
+  nxc-spinner {
     --indicator-color: currentColor;
     --stroke-width: 1px;
     position: absolute;
@@ -384,7 +384,7 @@
 // Badges
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-.button ::slotted(sl-badge) {
+.button ::slotted(nxc-badge) {
   position: absolute;
   top: 0;
   right: 0;

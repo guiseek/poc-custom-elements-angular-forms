@@ -1,0 +1,16 @@
+@use '../../../../styles/partials/host-box';
+
+:host {
+  display: block;
+}
+
+.menu-label {
+  font-family: var(--nxc-font-sans);
+  font-size: var(--nxc-font-size-small);
+  font-weight: var(--nxc-font-weight-normal);
+  line-height: var(--nxc-line-height-normal);
+  letter-spacing: var(--nxc-letter-spacing-normal);
+  color: var(--nxc-color-gray-70);
+  padding: var(--nxc-spacing-xx-small) var(--nxc-spacing-x-large);
+  user-select: none;
+}
