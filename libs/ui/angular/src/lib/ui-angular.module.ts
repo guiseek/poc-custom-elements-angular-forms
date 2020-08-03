@@ -1,23 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { ChangeDirective } from './outputs/change.directive';
-import { CustomOutputHoistDirective } from './adapters/custom-output-hoist.directive';
-import { InputHoistDirective } from './adapters/input-hoist.directive';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NxcInputComponent } from './adapters/nxc-input.component';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+  ],
   declarations: [
-    ChangeDirective,
-    CustomOutputHoistDirective,
-    InputHoistDirective,
+    NxcInputComponent,
   ],
   exports: [
+    NxcInputComponent,
     ReactiveFormsModule,
-    FormsModule,
-    ChangeDirective,
-    CustomOutputHoistDirective,
-    InputHoistDirective,
   ],
 })
 export class UiAngularModule {}

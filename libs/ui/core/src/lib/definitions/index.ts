@@ -1,5 +1,6 @@
 export * from './component/component-type';
 
+export * from './component/form/input-status';
 export * from './component/form/input-type';
 export * from './component/form/form-input';
 export * from './component/button/button';

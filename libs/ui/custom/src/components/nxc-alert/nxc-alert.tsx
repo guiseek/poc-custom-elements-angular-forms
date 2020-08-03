@@ -31,10 +31,10 @@ export class NxcAlert implements Alert {
     this.open ? this.show() : this.hide();
   }
 
-  @Event() nxcShow: EventEmitter<any>;
-  @Event() nxcAfterShow: EventEmitter<any>;
-  @Event() nxcHide: EventEmitter<any>;
-  @Event() nxcAfterHide: EventEmitter<any>;
+  @Event() nxcShow: EventEmitter;
+  @Event() nxcAfterShow: EventEmitter;
+  @Event() nxcHide: EventEmitter;
+  @Event() nxcAfterHide: EventEmitter;
 
   connectedCallback() {
     this.handleCloseClick = this.handleCloseClick.bind(this);

@@ -26,6 +26,7 @@
     "help": "nx help",
     "serve:custom": "nx run ui-custom:serve",
     "build:custom": "nx run ui-custom:build",
+    "test:custom": "stencil test --spec --e2e",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "private": true,

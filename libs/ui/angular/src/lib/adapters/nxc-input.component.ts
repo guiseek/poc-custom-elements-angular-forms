@@ -1,5 +1,5 @@
+import { FormInput, InputStatus } from '@nxc/ui/core';
 import { takeUntil } from 'rxjs/operators';
-import { FormInput } from '@nxc/ui/core';
 import { Components } from '@nxc/ui/custom';
 import {
   Host,
@@ -22,20 +22,18 @@ import {
 } from '@angular/forms';
 import { Subject } from 'rxjs';
 
-type InputStatus = 'VALID' | 'INVALID' | 'PENDING' | 'DISABLED';
-
 @Component({
-  selector: 'nxc-input, [nxcInput], [nxcInputHoist]',
-  template: '',
+  selector: 'nxc-input',
+  template: ``,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputHoistDirective),
+      useExisting: forwardRef(() => NxcInputComponent),
       multi: true,
     },
   ],
 })
-export class InputHoistDirective
+export class NxcInputComponent
   implements
     ControlValueAccessor,
     Partial<FormInput>,

@@ -1,6 +1,6 @@
 <main role="main">
   <section>
-    <nxc-alert type="primary" open>
+    <nxc-alert type="primary" closable="true" (nxcAfterHide)="onClose($event)" open>
       <nxc-icon slot="icon" name="info-circle"></nxc-icon>
       <strong>Welcome to {{ title }}!</strong><br />
       Welcome to {{ title }}!
@@ -10,8 +10,17 @@
   <section>
     <form [formGroup]="form">
       <nxc-input
+        label="Nickname"
+        [formControl]="form.get('nickname')"
+        (change)="onClick($event)"
+      >
+      </nxc-input>
+
+      <nxc-input
         label="Email"
         name="email"
+        type="search"
+        clearable="true"
         formControlName="email"
         (focusChange)="focusChange($event)"
         (blurChange)="blurChange($event)"
@@ -23,6 +32,7 @@
         label="Senha"
         type="password"
         name="password"
+        [togglePassword]="true"
         formControlName="password"
         (valueChange)="valueChange($event)"
       >

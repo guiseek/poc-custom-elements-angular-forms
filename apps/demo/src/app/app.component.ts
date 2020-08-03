@@ -37,7 +37,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('nxcInput') custom: ElementRef<Components.NxcInput>;
 
   form = new FormGroup({
-    email: new FormControl('guiseek', [Validators.email, Validators.required]),
+    nickname: new FormControl('guiseek'),
+    email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
@@ -59,9 +60,14 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log('valueChange: ', detail);
   }
 
-  onClick() {
-    console.log('clicked');
+  onClick(event: Event) {
+    console.log('clicked: ', event);
   }
+
+  onClose(event?) {
+    console.log(event);
+  }
+
   ngAfterViewInit() {
     window.setTimeout(() => {
       console.log(this.custom.nativeElement);
