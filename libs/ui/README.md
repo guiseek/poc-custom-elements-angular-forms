@@ -5,10 +5,10 @@ Diretório de agrupamento para bibliotecas de interface do usuário.
 
 ## Bibliotecas
 
-- [ui-angular](libs/ui/angular/README.md)
-- [ui-custom](libs/ui/custom/README.md)
-- [ui-styles](libs/ui/styles/README.md)
-- [ui-core](libs/ui/core/README.md)
+- [ui-angular](./angular/README.md)
+- [ui-custom](./custom/README.md)
+- [ui-styles](./styles/README.md)
+- [ui-core](./core/README.md)
 
 ### Diretórios
 
