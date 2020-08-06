@@ -1,0 +1,19 @@
+import { NxcTabsElement } from './nxc-tabs.element';
+
+describe('NxcTabsElement', () => {
+  let app: NxcTabsElement;
+
+  beforeEach(() => {
+    app = new NxcTabsElement();
+  });
+
+  it('should create successfully', () => {
+    expect(app).toBeTruthy();
+  });
+
+  it('should have a greeting', () => {
+    app.connectedCallback();
+
+    expect(app.querySelector('h1').innerHTML).toEqual('Welcome to ui-web!');
+  });
+});

@@ -10,7 +10,7 @@
 
 #/core @guiseek
 #/custom @guiseek
-#/styles @guiseek
+#/design/styles @guiseek
 #/angular @guiseek
 
 # Order is important; the last matching pattern takes the most

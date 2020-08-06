@@ -19,7 +19,7 @@ A ideia é usar componentes em diversas plataformas com o mínimo de impacto, te
 - [UI](libs/ui/README.md)
   - [ui-angular](libs/ui/angular/README.md)
   - [ui-custom](libs/ui/custom/README.md)
-  - [ui-styles](libs/ui/styles/README.md)
+  - [ui-styles](libs/ui/design/styles/README.md)
   - [ui-core](libs/ui/core/README.md)
 
 

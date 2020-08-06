@@ -5,7 +5,7 @@ export const config: Config = {
   namespace: 'nxc-custom',
   buildEs5: false,
   taskQueue: 'async',
-  globalStyle: './../styles/global.scss',
+  globalStyle: './../design/styles/global.scss',
   outputTargets: [
     {
       type: 'dist',

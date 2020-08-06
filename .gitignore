@@ -39,3 +39,5 @@ testem.log
 Thumbs.db
 
 .cache
+apps/ui/web/src/assets/tabs.css
+apps/ui/web/src/assets/tabs.html
