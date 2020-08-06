@@ -1,0 +1,37 @@
+@use '../../../../design/styles/partials/host-box';
+
+:host {
+  display: inline-block;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown__trigger {
+  display: block;
+}
+
+.dropdown__panel {
+  position: absolute;
+  z-index: var(--nxc-z-index-dropdown);
+  font-family: var(--nxc-font-sans);
+  font-size: var(--nxc-font-size-medium);
+  font-weight: var(--nxc-font-weight-normal);
+  color: var(--color);
+  background-color: var(--nxc-color-white);
+  border: solid 1px var(--nxc-color-gray-90);
+  border-radius: var(--nxc-border-radius-medium);
+  box-shadow: var(--nxc-shadow-large);
+  opacity: 0;
+  overflow: auto;
+  transition: var(--nxc-transition-fast) opacity;
+
+  &.popover-visible {
+    opacity: 1;
+  }
+
+  ::slotted(sl-menu) {
+    max-height: 50vh;
+  }
+}

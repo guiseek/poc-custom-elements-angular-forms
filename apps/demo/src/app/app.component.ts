@@ -37,6 +37,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('nxcInput') custom: ElementRef<Components.NxcInput>;
 
   form = new FormGroup({
+    color: new FormControl('#262728'),
     nickname: new FormControl('guiseek'),
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [
@@ -45,10 +46,25 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     ]),
   });
 
-  ngOnInit() {
+  constructor(private element: ElementRef<HTMLElement>) {}
+
+  async ngOnInit() {
+    customElements.whenDefined('nxc-color-picker').then(() => {
+      const colorPicker = document.querySelector('nxc-color-picker');
+      console.log(colorPicker);
+      colorPicker.addEventListener('nxcChange', (ev) => {
+        console.log(ev);
+      });
+    });
     this.form.valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe(console.log);
+  }
+  colorChange(event: CustomEvent) {
+    console.log(event);
+  }
+  colorHide() {
+    console.log('hide');
   }
   focusChange(event: CustomEvent) {
     console.log('focusChange: ', event);

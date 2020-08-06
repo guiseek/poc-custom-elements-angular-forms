@@ -34,6 +34,85 @@ export namespace Components {
         "type": ButtonType;
         "value": string;
     }
+    interface NxcColorPicker {
+        /**
+          * Set to true to disable the color picker.
+         */
+        "disabled": boolean;
+        /**
+          * The format to use for the display value. If opacity is enabled, these will translate to HEXA, RGBA, and HSLA respectively. The color picker will always accept user input in any format (including CSS color names) and convert it to the desired format.
+         */
+        "format": 'hex' | 'rgb' | 'hsl';
+        /**
+          * Set to true to render the color picker inline rather than inside a dropdown.
+         */
+        "inline": boolean;
+        /**
+          * Whether to show the opacity slider.
+         */
+        "opacity": boolean;
+        /**
+          * When `inline` is true, this determines the size of the color picker's trigger.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * An array of predefined color swatches to display. Can include any format the color picker can parse, including HEX(A), RGB(A), HSL(A), and CSS color names.
+         */
+        "swatches": string[];
+        /**
+          * By default, the value will be set in lowercase. Set this to true to set it in uppercase instead.
+         */
+        "uppercase": boolean;
+        /**
+          * The current color.
+         */
+        "value": string;
+    }
+    interface NxcDropdown {
+        /**
+          * Determines whether the dropdown should hide when a menu item is selected.
+         */
+        "closeOnSelect": boolean;
+        /**
+          * The dropdown will close when the user interacts outside of this element (e.g. clicking).
+         */
+        "containingElement": HTMLElement;
+        /**
+          * The distance in pixels from which to offset the panel away from its trigger.
+         */
+        "distance": number;
+        /**
+          * Hides the dropdown panel
+         */
+        "hide": () => Promise<void>;
+        /**
+          * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
+         */
+        "open": boolean;
+        /**
+          * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel inside of the viewport.
+         */
+        "placement": | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
+        /**
+          * Shows the dropdown panel
+         */
+        "show": () => Promise<void>;
+        /**
+          * The distance in pixels from which to offset the panel along its trigger.
+         */
+        "skidding": number;
+    }
     interface NxcIcon {
         /**
           * The icon label
@@ -127,6 +206,18 @@ declare global {
         prototype: HTMLNxcButtonElement;
         new (): HTMLNxcButtonElement;
     };
+    interface HTMLNxcColorPickerElement extends Components.NxcColorPicker, HTMLStencilElement {
+    }
+    var HTMLNxcColorPickerElement: {
+        prototype: HTMLNxcColorPickerElement;
+        new (): HTMLNxcColorPickerElement;
+    };
+    interface HTMLNxcDropdownElement extends Components.NxcDropdown, HTMLStencilElement {
+    }
+    var HTMLNxcDropdownElement: {
+        prototype: HTMLNxcDropdownElement;
+        new (): HTMLNxcDropdownElement;
+    };
     interface HTMLNxcIconElement extends Components.NxcIcon, HTMLStencilElement {
     }
     var HTMLNxcIconElement: {
@@ -172,6 +263,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "nxc-alert": HTMLNxcAlertElement;
         "nxc-button": HTMLNxcButtonElement;
+        "nxc-color-picker": HTMLNxcColorPickerElement;
+        "nxc-dropdown": HTMLNxcDropdownElement;
         "nxc-icon": HTMLNxcIconElement;
         "nxc-icon-button": HTMLNxcIconButtonElement;
         "nxc-input": HTMLNxcInputElement;
@@ -204,6 +297,113 @@ declare namespace LocalJSX {
         "submit"?: boolean;
         "type"?: ButtonType;
         "value"?: string;
+    }
+    interface NxcColorPicker {
+        /**
+          * Set to true to disable the color picker.
+         */
+        "disabled"?: boolean;
+        /**
+          * The format to use for the display value. If opacity is enabled, these will translate to HEXA, RGBA, and HSLA respectively. The color picker will always accept user input in any format (including CSS color names) and convert it to the desired format.
+         */
+        "format"?: 'hex' | 'rgb' | 'hsl';
+        /**
+          * Set to true to render the color picker inline rather than inside a dropdown.
+         */
+        "inline"?: boolean;
+        /**
+          * Emitted after the color picker closes and all transitions are complete.
+         */
+        "onNxcAfterHide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted after the color picker opens and all transitions are complete.
+         */
+        "onNxcAfterShow"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the color picker closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onNxcHide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the color picker opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onNxcShow"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the color picker's value changes.
+         */
+        "onValueChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Whether to show the opacity slider.
+         */
+        "opacity"?: boolean;
+        /**
+          * When `inline` is true, this determines the size of the color picker's trigger.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * An array of predefined color swatches to display. Can include any format the color picker can parse, including HEX(A), RGB(A), HSL(A), and CSS color names.
+         */
+        "swatches"?: string[];
+        /**
+          * By default, the value will be set in lowercase. Set this to true to set it in uppercase instead.
+         */
+        "uppercase"?: boolean;
+        /**
+          * The current color.
+         */
+        "value"?: string;
+    }
+    interface NxcDropdown {
+        /**
+          * Determines whether the dropdown should hide when a menu item is selected.
+         */
+        "closeOnSelect"?: boolean;
+        /**
+          * The dropdown will close when the user interacts outside of this element (e.g. clicking).
+         */
+        "containingElement"?: HTMLElement;
+        /**
+          * The distance in pixels from which to offset the panel away from its trigger.
+         */
+        "distance"?: number;
+        /**
+          * Emitted after the dropdown closes and all transitions are complete.
+         */
+        "onNxcAfterHide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted after the dropdown opens and all transitions are complete.
+         */
+        "onNxcAfterShow"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onNxcHide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onNxcShow"?: (event: CustomEvent<any>) => void;
+        /**
+          * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
+         */
+        "open"?: boolean;
+        /**
+          * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel inside of the viewport.
+         */
+        "placement"?: | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
+        /**
+          * The distance in pixels from which to offset the panel along its trigger.
+         */
+        "skidding"?: number;
     }
     interface NxcIcon {
         /**
@@ -283,6 +483,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "nxc-alert": NxcAlert;
         "nxc-button": NxcButton;
+        "nxc-color-picker": NxcColorPicker;
+        "nxc-dropdown": NxcDropdown;
         "nxc-icon": NxcIcon;
         "nxc-icon-button": NxcIconButton;
         "nxc-input": NxcInput;
@@ -298,6 +500,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "nxc-alert": LocalJSX.NxcAlert & JSXBase.HTMLAttributes<HTMLNxcAlertElement>;
             "nxc-button": LocalJSX.NxcButton & JSXBase.HTMLAttributes<HTMLNxcButtonElement>;
+            "nxc-color-picker": LocalJSX.NxcColorPicker & JSXBase.HTMLAttributes<HTMLNxcColorPickerElement>;
+            "nxc-dropdown": LocalJSX.NxcDropdown & JSXBase.HTMLAttributes<HTMLNxcDropdownElement>;
             "nxc-icon": LocalJSX.NxcIcon & JSXBase.HTMLAttributes<HTMLNxcIconElement>;
             "nxc-icon-button": LocalJSX.NxcIconButton & JSXBase.HTMLAttributes<HTMLNxcIconButtonElement>;
             "nxc-input": LocalJSX.NxcInput & JSXBase.HTMLAttributes<HTMLNxcInputElement>;

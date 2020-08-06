@@ -1,6 +1,14 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "allowUnreachableCode": false,
+    "declaration": false,
+    "esModuleInterop": true,
+    "lib": ["es2017"],
+    "moduleResolution": "node",
+    "pretty": true,
+    "resolveJsonModule": true,
+    "strict": true,
     "outDir": "../dist/out-tsc/tools",
     "rootDir": ".",
     "module": "commonjs",

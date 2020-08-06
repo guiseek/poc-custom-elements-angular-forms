@@ -1,14 +1,51 @@
 <main role="main">
   <section>
-    <nxc-alert type="primary" closable="true" (nxcAfterHide)="onClose($event)" open>
+    <nxc-alert
+      type="primary"
+      closable="true"
+      (nxcAfterHide)="onClose($event)"
+      open
+    >
       <nxc-icon slot="icon" name="info-circle"></nxc-icon>
       <strong>Welcome to {{ title }}!</strong><br />
       Welcome to {{ title }}!
     </nxc-alert>
+
+    <nxc-dropdown>
+      <nxc-button slot="trigger" caret>Dropdown</nxc-button>
+      <nxc-menu>
+        <nxc-menu-item>Dropdown Item 1</nxc-menu-item>
+        <nxc-menu-item>Dropdown Item 2</nxc-menu-item>
+        <nxc-menu-item>Dropdown Item 3</nxc-menu-item>
+        <nxc-menu-divider></nxc-menu-divider>
+        <nxc-menu-item checked>Checked</nxc-menu-item>
+        <nxc-menu-item disabled>Disabled</nxc-menu-item>
+        <nxc-menu-divider></nxc-menu-divider>
+        <nxc-menu-item>
+          Prefix
+          <nxc-icon slot="prefix" name="gift"></nxc-icon>
+        </nxc-menu-item>
+        <nxc-menu-item>
+          Suffix Icon
+          <nxc-icon slot="suffix" name="heart"></nxc-icon>
+        </nxc-menu-item>
+      </nxc-menu>
+    </nxc-dropdown>
+    
   </section>
 
   <section>
+  </section>
+  <section>
     <form [formGroup]="form">
+
+      <nxc-color-picker
+        formControlName="color"
+        (nxcAfterHide)="colorHide()"
+        (valueChange)="colorChange($event)"
+      >
+      </nxc-color-picker>
+
       <nxc-input
         label="Nickname"
         [formControl]="form.get('nickname')"
