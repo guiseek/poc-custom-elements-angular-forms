@@ -192,6 +192,10 @@ export namespace Components {
     }
     interface NxcMenuLabel {
     }
+    interface NxcRipple {
+        "addRipple": (x: number, y: number) => Promise<() => void>;
+        "type": 'bounded' | 'unbounded';
+    }
 }
 declare global {
     interface HTMLNxcAlertElement extends Components.NxcAlert, HTMLStencilElement {
@@ -260,6 +264,12 @@ declare global {
         prototype: HTMLNxcMenuLabelElement;
         new (): HTMLNxcMenuLabelElement;
     };
+    interface HTMLNxcRippleElement extends Components.NxcRipple, HTMLStencilElement {
+    }
+    var HTMLNxcRippleElement: {
+        prototype: HTMLNxcRippleElement;
+        new (): HTMLNxcRippleElement;
+    };
     interface HTMLElementTagNameMap {
         "nxc-alert": HTMLNxcAlertElement;
         "nxc-button": HTMLNxcButtonElement;
@@ -272,6 +282,7 @@ declare global {
         "nxc-menu-divider": HTMLNxcMenuDividerElement;
         "nxc-menu-item": HTMLNxcMenuItemElement;
         "nxc-menu-label": HTMLNxcMenuLabelElement;
+        "nxc-ripple": HTMLNxcRippleElement;
     }
 }
 declare namespace LocalJSX {
@@ -480,6 +491,9 @@ declare namespace LocalJSX {
     }
     interface NxcMenuLabel {
     }
+    interface NxcRipple {
+        "type"?: 'bounded' | 'unbounded';
+    }
     interface IntrinsicElements {
         "nxc-alert": NxcAlert;
         "nxc-button": NxcButton;
@@ -492,6 +506,7 @@ declare namespace LocalJSX {
         "nxc-menu-divider": NxcMenuDivider;
         "nxc-menu-item": NxcMenuItem;
         "nxc-menu-label": NxcMenuLabel;
+        "nxc-ripple": NxcRipple;
     }
 }
 export { LocalJSX as JSX };
@@ -509,6 +524,7 @@ declare module "@stencil/core" {
             "nxc-menu-divider": LocalJSX.NxcMenuDivider & JSXBase.HTMLAttributes<HTMLNxcMenuDividerElement>;
             "nxc-menu-item": LocalJSX.NxcMenuItem & JSXBase.HTMLAttributes<HTMLNxcMenuItemElement>;
             "nxc-menu-label": LocalJSX.NxcMenuLabel & JSXBase.HTMLAttributes<HTMLNxcMenuLabelElement>;
+            "nxc-ripple": LocalJSX.NxcRipple & JSXBase.HTMLAttributes<HTMLNxcRippleElement>;
         }
     }
 }

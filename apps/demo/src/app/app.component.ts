@@ -21,7 +21,7 @@ type Alert = Pick<Components.NxcAlert, 'type'> & {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'demo';
 
   alerts: Array<Alert> = [
@@ -33,8 +33,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   private destroy$ = new Subject<void>();
-
-  @ViewChild('nxcInput') custom: ElementRef<Components.NxcInput>;
 
   form = new FormGroup({
     color: new FormControl('#262728'),
@@ -49,13 +47,24 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(private element: ElementRef<HTMLElement>) {}
 
   async ngOnInit() {
-    customElements.whenDefined('nxc-color-picker').then(() => {
-      const colorPicker = document.querySelector('nxc-color-picker');
-      console.log(colorPicker);
-      colorPicker.addEventListener('nxcChange', (ev) => {
-        console.log(ev);
-      });
-    });
+    // customElements.whenDefined('nxc-color-picker').then(() => {
+    //   const colorPicker = document.querySelector('nxc-color-picker');
+    //   console.log(colorPicker);
+    //   colorPicker.addEventListener('nxcChange', (ev) => {
+    //     console.log(ev);
+    //   });
+    // });
+
+    // customElements.whenDefined('nxc-button').then(() => {
+    //   const buttons = document.querySelectorAll('nxc-button');
+    //   console.log(buttons);
+    //   buttons.forEach(btn => {
+    //     btn.addEventListener('click', (ev) => {
+    //       console.log(ev);
+    //     });
+    //   })
+    // });
+
     this.form.valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe(console.log);
@@ -82,12 +91,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onClose(event?) {
     console.log(event);
-  }
-
-  ngAfterViewInit() {
-    window.setTimeout(() => {
-      console.log(this.custom.nativeElement);
-    });
   }
 
   ngOnDestroy() {

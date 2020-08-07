@@ -13,9 +13,7 @@ export function createElement<K extends keyof HTMLElementTagNameMap>(
 ): HTMLElementTagNameMap[K] {
   return document.createElement(tag, opts);
 }
-type HTMLWith<T> = {
-  [P in keyof T]?: T[P];
-} & HTMLElement;
+
 /**
  * Adiciona atributos em um elemento
  * a patir de um objeto chave: valor

@@ -4,14 +4,25 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UiAngularModule } from '@nxc/ui/angular';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent, AboutComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     UiAngularModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'about',
+        component: AboutComponent
+      }
+    ], { initialNavigation: 'enabled' }),
   ],
   providers: [],
   bootstrap: [AppComponent],

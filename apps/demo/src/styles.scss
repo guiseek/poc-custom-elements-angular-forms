@@ -2,6 +2,11 @@
 
 /* You can add global styles to this file, and also import other style files */
 
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+
 @import 'mixins/make-colors.scss';
 :root {
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

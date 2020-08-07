@@ -9,8 +9,12 @@
       <nxc-icon slot="icon" name="info-circle"></nxc-icon>
       <strong>Welcome to {{ title }}!</strong><br />
       Welcome to {{ title }}!
+      
     </nxc-alert>
 
+  </section>
+
+  <nav>
     <nxc-dropdown>
       <nxc-button slot="trigger" caret>Dropdown</nxc-button>
       <nxc-menu>
@@ -31,65 +35,9 @@
         </nxc-menu-item>
       </nxc-menu>
     </nxc-dropdown>
-    
-  </section>
-
-  <section>
-  </section>
-  <section>
-    <form [formGroup]="form">
-
-      <nxc-color-picker
-        formControlName="color"
-        (nxcAfterHide)="colorHide()"
-        (valueChange)="colorChange($event)"
-      >
-      </nxc-color-picker>
-
-      <nxc-input
-        label="Nickname"
-        [formControl]="form.get('nickname')"
-        (change)="onClick($event)"
-      >
-      </nxc-input>
-
-      <nxc-input
-        label="Email"
-        name="email"
-        type="search"
-        clearable="true"
-        formControlName="email"
-        (focusChange)="focusChange($event)"
-        (blurChange)="blurChange($event)"
-        (valueChange)="valueChange($event)"
-      ></nxc-input>
-
-      <nxc-input
-        #nxcInput
-        label="Senha"
-        type="password"
-        name="password"
-        [togglePassword]="true"
-        formControlName="password"
-        (valueChange)="valueChange($event)"
-      >
-      </nxc-input>
-    </form>
-
-    <pre>{{ form.value | json }}</pre>
-  </section>
-
-  <section>
-    <nxc-menu>
-      <nxc-menu-item value="undo">Undo</nxc-menu-item>
-      <nxc-menu-item value="redo">Redo</nxc-menu-item>
-      <nxc-menu-divider></nxc-menu-divider>
-      <nxc-menu-item value="cut">Cut</nxc-menu-item>
-      <nxc-menu-item value="copy">Copy</nxc-menu-item>
-      <nxc-menu-item value="paste">Paste</nxc-menu-item>
-      <nxc-menu-item value="delete">Delete</nxc-menu-item>
-    </nxc-menu>
-  </section>
+  </nav>
+  
+  <router-outlet></router-outlet>
 
   <section>
     <nxc-alert *ngFor="let alert of alerts" [type]="alert.type" open>
@@ -99,5 +47,3 @@
       {{ alert.text }}
     </nxc-alert>
   </section>
-  <router-outlet></router-outlet>
-</main>

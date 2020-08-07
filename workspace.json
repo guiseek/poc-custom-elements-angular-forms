@@ -30,9 +30,13 @@
                 "output": "/icons/"
               }
             ],
-            "styles": ["apps/demo/src/styles.scss"],
+            "styles": [
+              "apps/demo/src/styles.scss"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": ["libs/ui/design/styles"]
+              "includePaths": [
+                "libs/ui/design/styles"
+              ]
             },
             "scripts": []
           },
@@ -91,7 +95,10 @@
               "apps/demo/tsconfig.app.json",
               "apps/demo/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/demo/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/demo/**/*"
+            ]
           }
         },
         "test": {
@@ -126,8 +133,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/demo-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/demo-e2e/**/*"]
+            "tsConfig": [
+              "apps/demo-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/demo-e2e/**/*"
+            ]
           }
         }
       }
@@ -146,7 +158,10 @@
               "libs/ui/core/tsconfig.lib.json",
               "libs/ui/core/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/core/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui/core/**/*"
+            ]
           }
         },
         "test": {
@@ -172,7 +187,10 @@
               "libs/util/testing/tsconfig.lib.json",
               "libs/util/testing/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/util/testing/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/util/testing/**/*"
+            ]
           }
         },
         "test": {
@@ -231,6 +249,18 @@
           "options": {
             "command": "npx ts-node --project tools/tsconfig.tools.json tools/scripts/make-icons.ts"
           }
+        },
+        "docs": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "nx run ui-custom:build --docs"
+          }
+        },
+        "generate-docs": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "npx ts-node --project tools/tsconfig.tools.json tools/scripts/run/all"
+          }
         }
       }
     },
@@ -259,7 +289,10 @@
               "libs/ui/angular/tsconfig.lib.json",
               "libs/ui/angular/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/angular/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui/angular/**/*"
+            ]
           }
         },
         "test": {
@@ -292,8 +325,13 @@
             "main": "apps/ui/web/src/main.ts",
             "polyfills": "apps/ui/web/src/polyfills.ts",
             "tsConfig": "apps/ui/web/tsconfig.app.json",
-            "assets": ["apps/ui/web/src/favicon.ico", "apps/ui/web/src/assets"],
-            "styles": ["apps/ui/web/src/styles.scss"],
+            "assets": [
+              "apps/ui/web/src/favicon.ico",
+              "apps/ui/web/src/assets"
+            ],
+            "styles": [
+              "apps/ui/web/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -340,7 +378,10 @@
               "apps/ui/web/tsconfig.app.json",
               "apps/ui/web/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/ui/web/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ui/web/**/*"
+            ]
           }
         },
         "test": {

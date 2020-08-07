@@ -21,13 +21,13 @@
 
 ## Events
 
-| Event         | Description                                                                                               | Type               |
-| ------------- | --------------------------------------------------------------------------------------------------------- | ------------------ |
-| `slAfterHide` | Emitted after the color picker closes and all transitions are complete.                                   | `CustomEvent<any>` |
-| `slAfterShow` | Emitted after the color picker opens and all transitions are complete.                                    | `CustomEvent<any>` |
-| `slChange`    | Emitted when the color picker's value changes.                                                            | `CustomEvent<any>` |
-| `slHide`      | Emitted when the color picker closes. Calling `event.preventDefault()` will prevent it from being closed. | `CustomEvent<any>` |
-| `slShow`      | Emitted when the color picker opens. Calling `event.preventDefault()` will prevent it from being opened.  | `CustomEvent<any>` |
+| Event          | Description                                                                                               | Type               |
+| -------------- | --------------------------------------------------------------------------------------------------------- | ------------------ |
+| `nxcAfterHide` | Emitted after the color picker closes and all transitions are complete.                                   | `CustomEvent<any>` |
+| `nxcAfterShow` | Emitted after the color picker opens and all transitions are complete.                                    | `CustomEvent<any>` |
+| `nxcHide`      | Emitted when the color picker closes. Calling `event.preventDefault()` will prevent it from being closed. | `CustomEvent<any>` |
+| `nxcShow`      | Emitted when the color picker opens. Calling `event.preventDefault()` will prevent it from being opened.  | `CustomEvent<any>` |
+| `valueChange`  | Emitted when the color picker's value changes.                                                            | `CustomEvent<any>` |
 
 
 ## Shadow Parts
