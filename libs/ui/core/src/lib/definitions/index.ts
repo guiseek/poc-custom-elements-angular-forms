@@ -1,3 +1,4 @@
+export * from './element/element-constructor';
 export * from './component/component-type';
 
 export * from './component/form/input-status';
@@ -10,6 +11,7 @@ export * from './component/alert/alert';
 
 export * from './id';
 export * from './input';
+export * from './event-with-target';
 export * from './event-emitter';
 export * from './interactor';
 export * from './output';

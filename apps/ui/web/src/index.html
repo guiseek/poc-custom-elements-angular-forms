@@ -7,18 +7,64 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="assets/tabs.css">
+    <link rel="stylesheet" href="assets/tabs.css" />
   </head>
   <body>
+    <nxc-router>
+      <nav class="nav">
+        <ul>
+          <li><a route="/">Home</a></li>
+          <li><a route="/about/">About</a></li>
+        </ul>
+      </nav>
+      <nxc-route
+        path="/"
+        title="Home"
+        component="home-page"
+      ></nxc-route>
+      <nxc-route
+        path="/about"
+        title="About Us"
+        component="about-page"
+      ></nxc-route>
+      <nxc-route
+        path="/users/:id"
+        title="User Details"
+        component="user-page"
+      ></nxc-route>
 
-    <nxc-tabs background>
-      <button slot="title">Tab 1</button>
-      <button slot="title" selected>Tab 2</button>
-      <button slot="title">Tab 3</button>
-      <section>content panel 1</section>
-      <section>content panel 2</section>
+      <nxc-route
+        path="*"
+        title="404"
+        component="not-found"
+      ></nxc-route>
+
+      <nxc-outlet></nxc-outlet>
+
+    </nxc-router>
+
+    <!-- <nxc-tabs background>
+      <button slot="title">
+        Header
+      </button>
+      <button slot="title" selected>
+        Form
+      </button>
+      <button slot="title">
+        Summary
+      </button>
+      <section>
+        <h1>Headers</h1>
+      </section>
+      <section>
+        <form>
+          <nxc-input></nxc-input>
+          <label>Number of bunnies: <nxc-control></nxc-control></label>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
       <section>content panel 3</section>
-    </nxc-tabs>
+    </nxc-tabs> -->
 
     <nxc-root></nxc-root>
   </body>

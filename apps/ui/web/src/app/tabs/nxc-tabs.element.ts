@@ -1,6 +1,6 @@
 import './nxc-tabs.element.scss';
 
-let styles = `
+export let styles = `
 <style>
 #panels {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
@@ -48,7 +48,7 @@ let styles = `
 }
 </style>
 `;
-let template = `
+export let template = `
 <div id="tabs">
   <slot id="tabsSlot" name="title"></slot>
 </div>
@@ -57,112 +57,108 @@ let template = `
 </div>
 `;
 
-// let _selected = null;
-type NodeAs<E> = Node & E;
+// function getAs<E>(nodeOrElement: any) {
+//   return nodeOrElement as E
+// }
 
-function getAs<E>(nodeOrElement: any) {
-  return nodeOrElement as E
-}
+// customElements.define(
+//   'nxc-tabs',
+//   class NxcTabsElement extends HTMLElement {
+//     constructor() {
+//       super();
+//       const dom = this.attachShadow({ mode: 'open' });
+//       dom.innerHTML = styles + template;
+//     }
 
-customElements.define(
-  'nxc-tabs',
-  class NxcTabsElement extends HTMLElement {
-    constructor() {
-      super();
-      const dom = this.attachShadow({ mode: 'open' });
-      dom.innerHTML = styles + template;
-    }
+//     public tabs: HTMLSlotElement[];
+//     public panels = [];
 
-    public tabs: HTMLSlotElement[];
-    public panels = [];
+//     private _selected = null;
+//     get selected() {
+//       return this._selected;
+//     }
 
-    private _selected = null;
-    get selected() {
-      return this._selected;
-    }
+//     set selected(idx) {
+//       this._selected = idx;
+//       this._selectTab(idx);
 
-    set selected(idx) {
-      this._selected = idx;
-      this._selectTab(idx);
+//       this.setAttribute('selected', idx);
+//     }
 
-      this.setAttribute('selected', idx);
-    }
+//     _selectTab(idx = null) {
+//       for (let i = 0, tab; (tab = this.tabs[i]); ++i) {
+//         let select = i === idx;
+//         tab.setAttribute('tabindex', select ? 0 : -1);
+//         tab.setAttribute('aria-selected', select);
+//         this.panels[i].setAttribute('aria-hidden', !select);
+//       }
+//     }
 
-    _selectTab(idx = null) {
-      for (let i = 0, tab; (tab = this.tabs[i]); ++i) {
-        let select = i === idx;
-        tab.setAttribute('tabindex', select ? 0 : -1);
-        tab.setAttribute('aria-selected', select);
-        this.panels[i].setAttribute('aria-hidden', !select);
-      }
-    }
+//     _findFirstSelectedTab() {
+//       let selectedIdx: number;
+//       for (let [i, tab] of this.tabs.entries()) {
+//         tab.setAttribute('role', 'tab');
+//         if (tab.hasAttribute('selected')) {
+//           selectedIdx = i;
+//         }
+//       }
+//       return selectedIdx;
+//     }
 
-    _findFirstSelectedTab() {
-      let selectedIdx: number;
-      for (let [i, tab] of this.tabs.entries()) {
-        tab.setAttribute('role', 'tab');
-        if (tab.hasAttribute('selected')) {
-          selectedIdx = i;
-        }
-      }
-      return selectedIdx;
-    }
+//     connectedCallback() {
+//       this.setAttribute('role', 'tablist');
 
-    connectedCallback() {
-      this.setAttribute('role', 'tablist');
+//       const tabsSlot = this.shadowRoot.querySelector<HTMLSlotElement>(
+//         '#tabsSlot'
+//       );
+//       const panelsSlot = this.shadowRoot.querySelector<HTMLSlotElement>(
+//         '#panelsSlot'
+//       );
 
-      const tabsSlot = this.shadowRoot.querySelector<HTMLSlotElement>(
-        '#tabsSlot'
-      );
-      const panelsSlot = this.shadowRoot.querySelector<HTMLSlotElement>(
-        '#panelsSlot'
-      );
+//       this.tabs = getAs<HTMLSlotElement[]>(tabsSlot.assignedNodes({ flatten: true }));
+//       this.panels = panelsSlot.assignedNodes({ flatten: true }).filter((el) => {
+//         // return el.nodeName === 'SECTION';
+//         return el.nodeType === Node.ELEMENT_NODE;
+//       });
+//       Array.from(this.panels.entries()).forEach(([i, panel]) => {
+//         panel.setAttribute('role', 'tabpanel');
+//         panel.setAttribute('tabindex', 0);
+//       });
 
-      this.tabs = getAs<HTMLSlotElement[]>(tabsSlot.assignedNodes({ flatten: true }));
-      this.panels = panelsSlot.assignedNodes({ flatten: true }).filter((el) => {
-        // return el.nodeName === 'SECTION';
-        return el.nodeType === Node.ELEMENT_NODE;
-      });
-      Array.from(this.panels.entries()).forEach(([i, panel]) => {
-        console.log(i, panel);
-        panel.setAttribute('role', 'tabpanel');
-        panel.setAttribute('tabindex', 0);
-      });
+//       const _boundOnTitleClick = this._onTitleClick.bind(this);
+//       const _boundOnKeyDown = this._onKeyDown.bind(this);
 
-      const _boundOnTitleClick = this._onTitleClick.bind(this);
-      const _boundOnKeyDown = this._onKeyDown.bind(this);
+//       tabsSlot.addEventListener('click', _boundOnTitleClick);
+//       tabsSlot.addEventListener('keydown', _boundOnKeyDown);
 
-      tabsSlot.addEventListener('click', _boundOnTitleClick);
-      tabsSlot.addEventListener('keydown', _boundOnKeyDown);
+//       this.selected = this._findFirstSelectedTab() || 0;
+//     }
 
-      this.selected = this._findFirstSelectedTab() || 0;
-    }
-
-    _onTitleClick(e) {
-      if (e.target.slot === 'title') {
-        this.selected = this.tabs.indexOf(e.target);
-        e.target.focus();
-      }
-    }
-    _onKeyDown(e) {
-      let idx;
-      switch (e.code) {
-        case 'ArrowUp':
-        case 'ArrowLeft':
-          e.preventDefault();
-          idx = this.selected - 1;
-          idx = idx < 0 ? this.tabs.length - 1 : idx;
-          this.tabs[idx].click();
-          break;
-        case 'ArrowDown':
-        case 'ArrowRight':
-          e.preventDefault();
-          idx = this.selected + 1;
-          this.tabs[idx % this.tabs.length].click();
-          break;
-        default:
-          break;
-      }
-    }
-  }
-);
+//     _onTitleClick(e) {
+//       if (e.target.slot === 'title') {
+//         this.selected = this.tabs.indexOf(e.target);
+//         e.target.focus();
+//       }
+//     }
+//     _onKeyDown(e) {
+//       let idx;
+//       switch (e.code) {
+//         case 'ArrowUp':
+//         case 'ArrowLeft':
+//           e.preventDefault();
+//           idx = this.selected - 1;
+//           idx = idx < 0 ? this.tabs.length - 1 : idx;
+//           this.tabs[idx].click();
+//           break;
+//         case 'ArrowDown':
+//         case 'ArrowRight':
+//           e.preventDefault();
+//           idx = this.selected + 1;
+//           this.tabs[idx % this.tabs.length].click();
+//           break;
+//         default:
+//           break;
+//       }
+//     }
+//   }
+// );

@@ -3,9 +3,51 @@
   width: 650px;
   font-family: 'Roboto Slab';
   contain: content;
+
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  font-family: var(--nxc-input-font-family);
+  font-weight: var(--nxc-input-font-weight);
+  letter-spacing: var(--nxc-input-letter-spacing);
+  background-color: var(--nxc-input-background-color);
+  border: solid var(--nxc-input-border-width) var(--nxc-input-border-color);
+  vertical-align: middle;
+  overflow: hidden;
+  transition: var(--nxc-transition-fast) color,
+    var(--nxc-transition-fast) border, var(--nxc-transition-fast) box-shadow;
+  cursor: text;
 }
 :host([background]) {
   background: var(--background-color, #9e9e9e);
   border-radius: 10px;
   padding: 10px;
+}
+
+nxc-tabs {
+  display: inline-block;
+  width: 650px;
+  font-family: 'Roboto Slab';
+  contain: content;
+
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  font-family: var(--nxc-input-font-family);
+  font-weight: var(--nxc-input-font-weight);
+  letter-spacing: var(--nxc-input-letter-spacing);
+  background-color: var(--nxc-input-background-color);
+  border: solid var(--nxc-input-border-width) var(--nxc-input-border-color);
+  vertical-align: middle;
+  overflow: hidden;
+  transition: var(--nxc-transition-fast) color,
+    var(--nxc-transition-fast) border, var(--nxc-transition-fast) box-shadow;
+  cursor: text;
 }

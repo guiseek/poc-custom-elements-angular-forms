@@ -1,65 +1,42 @@
-let styles = `
-<style>
-  :host {
-    display: block; 
-    padding: 3px;
-    border: 2px solid #ccc;
-    box-sizing: border-box;
-  }
-  :host(:invalid) {
-    border: 2px solid red;
-  }
-  input {
-    box-sizing: border-box;
-    width: 100%;
-  }
-</style>
-`;
+import { ElementConstructor, EventWithTarget } from '@nxc/ui/core';
 
-let template = `
-<nxc-input></nxc-input>
-`;
-
-export class NxcControl extends HTMLElement {
+export class NxcInputElement extends HTMLElement {
   static formAssociated = true;
 
-  static observedAttributes = ['disabled', 'placeholder'];
+  static observedAttributes = ['type', 'disabled', 'placeholder'];
 
   input_: HTMLNxcInputElement | HTMLInputElement;
   internals_;
   attachInternals = () => {
     console.log('attachInternals');
+    return {}
   };
 
-  constructor() {
+  constructor({
+    template = '',
+    styles = '',
+    mode = 'open',
+    delegatesFocus = true,
+  }: ElementConstructor) {
     super();
+
     this.internals_ = this.attachInternals();
 
-    template = `<input>`;
-
-    // Don’t need to register ‘formdata’ event handler.
-
-    this.attachShadow({ mode: 'open', delegatesFocus: true });
-    this.shadowRoot.innerHTML = styles + template;
-    this.input_ = this.shadowRoot.querySelector('input');
-    this.input_.addEventListener('input', () => this.onInput());
+    this.attachShadow({ mode, delegatesFocus });
+    this.shadowRoot.innerHTML = `${styles + template}`;
     
+    this.input_ = this.shadowRoot.querySelector('nxc-input');
     this.setAttribute('tabindex', '0');
 
-    console.log(this.input_);
+    const _boundOnInput = this.onInput.bind(this);
+    this.addEventListener('input', _boundOnInput);
 
-    // Do something if <label> is clicked.
-    this.addEventListener('click', () => {
-      console.log('click');
-
-      this.input_.focus();
-
-      this.input_.disabled = true;
-    });
   }
 
   // Called whenever the value is updated.
-  onInput() {
+  onInput(e?: InputEvent) {
+    console.log(e);
+    
     if (
       !this.matches(':disabled') &&
       this.hasAttribute('required') &&
@@ -70,7 +47,6 @@ export class NxcControl extends HTMLElement {
         'Use at least 5 characters.'
       );
     } else {
-      
       this.internals_.setValidity({});
     }
     this.internals_.setFormValue(this.value);
@@ -158,5 +134,3 @@ export class NxcControl extends HTMLElement {
     this.input_[name] = newValue;
   }
 }
-
-customElements.define('nxc-control', NxcControl);

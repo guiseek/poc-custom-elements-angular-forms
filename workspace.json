@@ -30,13 +30,9 @@
                 "output": "/icons/"
               }
             ],
-            "styles": [
-              "apps/demo/src/styles.scss"
-            ],
+            "styles": ["apps/demo/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "libs/ui/design/styles"
-              ]
+              "includePaths": ["libs/ui/design/styles"]
             },
             "scripts": []
           },
@@ -95,10 +91,7 @@
               "apps/demo/tsconfig.app.json",
               "apps/demo/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/demo/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/demo/**/*"]
           }
         },
         "test": {
@@ -133,13 +126,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/demo-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/demo-e2e/**/*"
-            ]
+            "tsConfig": ["apps/demo-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/demo-e2e/**/*"]
           }
         }
       }
@@ -158,10 +146,7 @@
               "libs/ui/core/tsconfig.lib.json",
               "libs/ui/core/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/core/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui/core/**/*"]
           }
         },
         "test": {
@@ -187,10 +172,7 @@
               "libs/util/testing/tsconfig.lib.json",
               "libs/util/testing/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/util/testing/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/util/testing/**/*"]
           }
         },
         "test": {
@@ -289,10 +271,7 @@
               "libs/ui/angular/tsconfig.lib.json",
               "libs/ui/angular/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/angular/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui/angular/**/*"]
           }
         },
         "test": {
@@ -325,13 +304,11 @@
             "main": "apps/ui/web/src/main.ts",
             "polyfills": "apps/ui/web/src/polyfills.ts",
             "tsConfig": "apps/ui/web/tsconfig.app.json",
-            "assets": [
-              "apps/ui/web/src/favicon.ico",
-              "apps/ui/web/src/assets"
-            ],
-            "styles": [
-              "apps/ui/web/src/styles.scss"
-            ],
+            "assets": ["apps/ui/web/src/favicon.ico", "apps/ui/web/src/assets"],
+            "styles": ["apps/ui/web/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/ui/design/styles"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -378,10 +355,7 @@
               "apps/ui/web/tsconfig.app.json",
               "apps/ui/web/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ui/web/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/ui/web/**/*"]
           }
         },
         "test": {
@@ -391,6 +365,126 @@
             "tsConfig": "apps/ui/web/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "apps/ui/web/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "api-web": {
+      "root": "apps/api/web",
+      "sourceRoot": "apps/api/web/src",
+      "projectType": "application",
+      "prefix": "api-web",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/api/web",
+            "main": "apps/api/web/src/main.ts",
+            "tsConfig": "apps/api/web/tsconfig.app.json",
+            "assets": ["apps/api/web/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/web/src/environments/environment.ts",
+                  "with": "apps/api/web/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api-web:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/api/web/tsconfig.app.json",
+              "apps/api/web/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/api/web/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/api/web/jest.config.js",
+            "tsConfig": "apps/api/web/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-common": {
+      "root": "libs/ui/common",
+      "sourceRoot": "libs/ui/common/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/ui/common/tsconfig.lib.json",
+              "libs/ui/common/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/common/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/common/jest.config.js",
+            "tsConfig": "libs/ui/common/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "util-routing": {
+      "root": "libs/util/routing",
+      "sourceRoot": "libs/util/routing/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/util/routing/tsconfig.lib.json",
+              "libs/util/routing/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/util/routing/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/util/routing/jest.config.js",
+            "tsConfig": "libs/util/routing/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/util/routing",
+            "tsConfig": "libs/util/routing/tsconfig.lib.json",
+            "packageJson": "libs/util/routing/package.json",
+            "main": "libs/util/routing/src/index.ts",
+            "assets": ["libs/util/routing/*.md"]
           }
         }
       }

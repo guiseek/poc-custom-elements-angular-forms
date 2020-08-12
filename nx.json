@@ -33,7 +33,7 @@
       "tags": ["type:ui", "scope:core"]
     },
     "util-testing": {
-      "tags": []
+      "tags": ["type:util"]
     },
     "ui-custom": {
       "tags": ["type:ui", "framework:stencil"]
@@ -43,6 +43,15 @@
     },
     "ui-web": {
       "tags": ["type:ui"]
+    },
+    "api-web": {
+      "tags": []
+    },
+    "ui-common": {
+      "tags": []
+    },
+    "util-routing": {
+      "tags": ["type:util"]
     }
   }
 }

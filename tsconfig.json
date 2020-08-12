@@ -11,36 +11,20 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nxc/ui/core": [
-        "libs/ui/core/src/index.ts"
-      ],
-      "@nxc/util/testing": [
-        "libs/util/testing/src/index.ts"
-      ],
-      "@nxc/ui/custom": [
-        "libs/ui/custom/src/index.ts"
-      ],
-      "@nxc/ui/custom/loader": [
-        "dist/libs/ui/custom/loader"
-      ],
-      "@nxc/ui/angular": [
-        "libs/ui/angular/src/index.ts"
-      ]
+      "@nxc/ui/core": ["libs/ui/core/src/index.ts"],
+      "@nxc/util/testing": ["libs/util/testing/src/index.ts"],
+      "@nxc/ui/custom": ["libs/ui/custom/src/index.ts"],
+      "@nxc/ui/custom/loader": ["dist/libs/ui/custom/loader"],
+      "@nxc/ui/angular": ["libs/ui/angular/src/index.ts"],
+      "@nxc/ui/common": ["libs/ui/common/src/index.ts"],
+      "@nxc/util/routing": ["libs/util/routing/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
