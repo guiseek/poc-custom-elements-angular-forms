@@ -3,8 +3,9 @@ import {
   NxcRouterElement,
   NxcTabsElement,
 } from '@nxc/ui/common';
-import './app/pages/index';
+// import './app/pages/index';
 import { styles, template } from './app/tabs/nxc-tabs.element';
+import AboutUs from './app/pages/user';
 
 
 NxcTabsElement.styles = styles;
@@ -20,24 +21,25 @@ customElements.define(
   NxcRouterElement
 );
 
+// customElements.define('about-page', AboutUs);
 
 
-// (async (define) => {
-//   console.log(define);
-//   // customElements.define('nxc-router', NxcRouter);
-//   customElements.whenDefined('nxc-router').then(() => {
-//     console.log('router');
-//   });
+(async (define) => {
+  console.log(define);
+  // customElements.define('nxc-router', NxcRouter);
+  customElements.whenDefined('nxc-router').then(() => {
+    console.log('router');
+  });
 
-//   define(window, {
-//     rel: (el, evt, listen, opts) => {
-//       console.log(el, evt, listen, opts);
-//     },
-//     resourcesUrl: 'resource',
-//   }).then(() => {
-//     console.log('defined');
-//   });
-// })(defineCustomElements);
+  define(window, {
+    rel: (el, evt, listen, opts) => {
+      console.log(el, evt, listen, opts);
+    },
+    resourcesUrl: 'resource',
+  }).then(() => {
+    console.log('defined');
+  });
+})(defineCustomElements);
 
 // export declare type Window<T = any> = {
 //   [P in keyof T]?: T[P];
